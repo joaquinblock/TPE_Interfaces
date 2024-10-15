@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/header-footer.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="login">
-        <h2>Inicion de sesión</h2>
-    </div>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="../html/home.html"><img src="../img/pixel-play1.png" alt="logo"></a>
+        </div>
+    </header>
     <form action="" class="formulario" id="formulario">
+        <div class="login">
+            <h2>Inicion de sesión</h2>
+        </div>
             <!-- Grupo: Correo Electronico -->
         <div class="formulario__grupo" id="grupo__correo">
             <label for="correo" class="formulario__label">
@@ -50,33 +57,76 @@
             <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
             Mantener sesion iniciada
         </p>
+        
+        <!-- Recaptcha -->
+                <div class="recaptcha">
+                    <div class="checkbox-text-container">
+                        <div class="checkbox-container">
+                            <div class="checkbox"></div>
+                        </div>
+                        <p id="texto-recaptcha-1">No soy un robot</p>
+                    </div>
+                    <div class="recaptcha-logo">
+                        <img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
+                        <p id="texto-recaptcha-2">Privacidad - Condiciones</p>
+                    </div>  
+                </div>
+
+        <!-- Iniciar sesion -->
+        <div class="formulario__grupo-btn-enviar">
+            <button class="formulario__btn"><a href="../html/home.html">Iniciar sesión</a></button>
+            <a href="">¿Has olvidado la contraseña?</a>
+        </div>
+
+        <div class="form-link-login">
+            <p>¿No tienes una cuenta?</p>
+            <a href="../html/formulario.html">Crear una cuenta</a>
+        </div>
     </form>
-    
 
-    <!-- Recaptcha -->
-			<div class="recaptcha">
-				<div class="checkbox-text-container">
-					<div class="checkbox-container">
-						<div class="checkbox"></div>
-					</div>
-					<p id="texto-recaptcha-1">No soy un robot</p>
-				</div>
-				<div class="recaptcha-logo">
-					<img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
-					<p id="texto-recaptcha-2">Privacidad - Condiciones</p>
-				</div>  
-			</div>
-
-    <!-- Iniciar sesion -->
-    <div class="formulario__grupo-btn-enviar">
-        <button class="formulario__btn"><a href="../html/home.html">Iniciar sesión</a></button>
-        <a href="">¿Has olvidado la contraseña?</a>
-    </div>
-
-    <div class="form-link-login">
-        <p>¿No tienes una cuenta?</p>
-        <a href="../html/formulario.html">Crear una cuenta</a>
-    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Pixel Play</h3>
+          </div>
+          <div class="footer-section">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Integrations</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Developers</h4>
+            <ul>
+              <li><a href="#">Developer API</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Guides</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
+                <a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
+                <a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Pixel Play. All rights reserved.</p>
+        </div>
+      </footer>
 
     <script src="../js/formulario.js"></script>
     <script src="../js/recaptcha.js"></script>

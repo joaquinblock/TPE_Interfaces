@@ -6,6 +6,21 @@
     --color-principal: #FF4500;
     --color-principal-2: #faaa8d;
     --color-secundario: #00BFFF;
+    --background_1: #7D7D7D;
+    --background_2: #505050;
+    --background_3: #000000;
+}
+
+body{
+    background: linear-gradient(to bottom, var(--background_1) 0%, var(--background_2) 50%, var(--background_3) 83%);
+}
+
+.formulario{
+    padding: 15px;
+    width: 400px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .form-link-login{
