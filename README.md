@@ -1,1 +1,1 @@
-El trabajo lo hizo solo el alumno Joaquin Block
+Integrante del grupo: Joaquin Block
