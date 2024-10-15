@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/formulario.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <main>
+		<form action="" class="formulario" id="formulario">
+			<!-- Grupo: Usuario -->
+			<div class="formulario__grupo" id="grupo__usuario">
+				<label for="usuario" class="formulario__label">Usuario</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="john123">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p>El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Nombre -->
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre Completo</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="John Doe">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p>El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+			</div>
+
+			<!-- Grupo Edad -->
+			<div class="formulario__grupo">
+				<button type="button" id="dia">
+					Día
+					<img class="flecha" src="../iconos/arrow-bottom.svg" alt="">
+					<img class="flecha hidden" src="../iconos/arrow-top.svg" alt="">
+				</button>
+				<button type="button" id="mes">Mes
+					<img class="flecha" src="../iconos/arrow-bottom.svg" alt="">
+					<img class="flecha hidden" src="../iconos/arrow-top.svg" alt="">
+				</button>
+				<button type="button" id="anio">Año
+					<img class="flecha" src="../iconos/arrow-bottom.svg" alt="">
+					<img class="flecha hidden" src="../iconos/arrow-top.svg" alt="">
+				</button>
+				<div class="contenedor-opciones">
+					<div class="contenedor-dias invisible">
+						<div class="opcion">1</div>
+						<div class="opcion">2</div>
+						<div class="opcion">3</div>
+						<div class="opcion">4</div>
+						<div class="opcion">5</div>
+						<div class="opcion">6</div>
+						<div class="opcion">7</div>
+						<div class="opcion">8</div>
+						<div class="opcion">9</div>
+						<div class="opcion">10</div>
+						<div class="opcion">11</div>
+						<div class="opcion">12</div>
+						<div class="opcion">13</div>
+						<div class="opcion">14</div>
+						<div class="opcion">15</div>
+						<div class="opcion">16</div>
+						<div class="opcion">17</div>
+						<div class="opcion">18</div>
+						<div class="opcion">19</div>
+						<div class="opcion">20</div>
+						<div class="opcion">21</div>
+						<div class="opcion">22</div>
+						<div class="opcion">23</div>
+						<div class="opcion">24</div>
+						<div class="opcion">25</div>
+						<div class="opcion">26</div>
+						<div class="opcion">27</div>
+						<div class="opcion">28</div>
+						<div class="opcion">29</div>
+						<div class="opcion">30</div>
+						<div class="opcion">31</div>
+					</div>
+					<div class="contendor-meses invisible">
+						<div class="opcion">Enero</div>
+						<div class="opcion">Febrero</div>
+						<div class="opcion">Marzo</div>
+						<div class="opcion">Abril</div>
+						<div class="opcion">Mayo</div>
+						<div class="opcion">Junio</div>
+						<div class="opcion">Julio</div>
+						<div class="opcion">Agosto</div>
+						<div class="opcion">Septiembre</div>
+						<div class="opcion">Octubre</div>
+						<div class="opcion">Noviembre</div>
+						<div class="opcion">Diciembre</div>
+					</div>
+					<div class="contendor-anios invisible">
+						<div class="opcion">1990</div>
+						<div class="opcion">1991</div>
+						<div class="opcion">1992</div>
+						<div class="opcion">1993</div>
+						<div class="opcion">1994</div>
+						<div class="opcion">1995</div>
+						<div class="opcion">1996</div>
+						<div class="opcion">1997</div>
+						<div class="opcion">1998</div>
+						<div class="opcion">1999</div>
+						<div class="opcion">2000</div>
+						<div class="opcion">2001</div>
+						<div class="opcion">2002</div>
+						<div class="opcion">2003</div>
+						<div class="opcion">2004</div>
+						<div class="opcion">2005</div>
+						<div class="opcion">2006</div>
+						<div class="opcion">2007</div>
+						<div class="opcion">2008</div>
+						<div class="opcion">2009</div>
+						<div class="opcion">2010</div>
+						<div class="opcion">2011</div>
+						<div class="opcion">2012</div>
+						<div class="opcion">2013</div>
+						<div class="opcion">2014</div>
+						<div class="opcion">2015</div>
+						<div class="opcion">2016</div>
+						<div class="opcion">2017</div>
+						<div class="opcion">2018</div>
+						<div class="opcion">2019</div>
+						<div class="opcion">2020</div>
+						<div class="opcion">2021</div>
+						<div class="opcion">2022</div>
+						<div class="opcion">2023</div>
+						<div class="opcion">2024</div>
+					  </div>
+					  
+				</div>
+			</div>
+
+			<!-- Grupo: Contraseña -->
+			<div class="formulario__grupo" id="grupo__password">
+				<label for="password" class="formulario__label">Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password" id="password">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="check-security-password hidden">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <p>Mensaje</p>
+                </div>
+                <div class="formulario_mensaje none">
+                    <p>La contraseña debe tener al menos:</p>
+                    <ul>
+                        <li><p>8 caracteres</p></li>
+                        <li><p>Una letra mayúscula y un número</p></li>
+                        <li><p>un carácter especial (como @, #, !, etc.)</p></li>
+                    </ul>
+                    
+                </div>
+			</div>
+
+			<!-- Grupo: Contraseña 2 -->
+			<div class="formulario__grupo" id="grupo__password2">
+				<label for="password2" class="formulario__label">Repetir Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password2" id="password2">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p">Ambas contraseñas deben ser iguales.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Correo Electronico -->
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="correo" class="formulario__label">Correo Electrónico</label>
+				<div class="formulario__grupo-input">
+					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Teléfono -->
+			<div class="formulario__grupo" id="grupo__telefono">
+				<label for="telefono" class="formulario__label">Teléfono</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Terminos y Condiciones -->
+			<div class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</div>
+
+			<div class="formulario__mensaje_error block" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+			<!-- Recaptcha -->
+			<div class="recaptcha">
+				<div class="checkbox-text-container">
+					<div class="checkbox-container">
+						<div class="checkbox"></div>
+					</div>
+					<p id="texto-recaptcha-1">No soy un robot</p>
+				</div>
+				<div class="recaptcha-logo">
+					<img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
+					<p id="texto-recaptcha-2">Privacidad - Condiciones</p>
+				</div>  
+			</div>
+
+			<div class="formulario__grupo-btn-enviar none">
+				<button type="submit" class="formulario__btn">Registrarse</button>
+			</div>
+
+			<div class="form-link-login">
+				<p>¿Ya tienes una cuenta?</p>
+				<a href="../html/login.html">Iniciar sesion</a>
+			</div>
+		</form>
+        
+	</main>
+    <script src="../js/formulario.js"></script>
+    <script src="../js/recaptcha.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --color-principal: #FF4500;
+    --color-principal-2: #faaa8d;
+    --color-secundario: #00BFFF;
+}
+
+.form-link-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.form-link-login a{
+    text-decoration: none;
+    color: var(--color-principal);
+}
+
+.form-link-login a:hover{
+    text-decoration: underline;
+}
+
+.formulario__btn {
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: var(--color-principal);
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+
+.formulario__btn:hover {
+	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+
+.formulario__grupo-btn-enviar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario__grupo-btn-enviar a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.formulario__grupo-btn-enviar a:hover{
+    text-decoration: underline;
+}
+
+.formulario__input {
+	width: 50%;
+	background: #ffffff;
+	border: 1px solid #D3D3D3;
+	border-radius: 10px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__grupo-input{
+    display: flex;
+    gap: 1em;
+}
+
+/*.formulario__input:focus {
+	border: 2px solid #00BFFF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}*/
+
+.formulario__checkbox {
+	margin-right: 10px;
+    accent-color:var(--color-principal); /* Color rojo */
+}
+
+.recaptcha{
+    height: 77px;
+    width: 295px;
+    margin: 25px auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #f9f9f9;
+    stroke: #d7dbe4;
+    border-radius: 4px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#texto-recaptcha-2{
+    /* Texto Recaptcha */
+    margin: 0px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    color: #555555;
+}
+
+#texto-recaptcha-1{
+    margin-left: 10px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    color: #000000;
+
+}
+
+.recaptcha-logo{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    text-align: center;
+}
+
+/* Checkbox */
+.checkbox{
+    
+    box-sizing: border-box;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ffffff;
+    border: 1.5px solid #C1C1C1;
+    border-radius: 2px;
+    cursor: pointer; /*indica que es clickeable*/
+}
+
+.checkbox-text-container{
+    display: flex;
+    align-items: center;
+}
+
+/* SPINNER */
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    
+    border: 2.5px solid #fffc;
+    border-top-color: #09f;
+    border-radius: 100%;
+
+    animation: spin 1s infinite; /*lo que se gira es el circulo el azul queda fijo*/
+}
+
+@keyframes spin {
+    to {transform: rotate(360deg);}
+}
+
+/* VISIBLE E INVISIBLE */
+
+label:has(:focus:invalid){
+    color: tomato;
+}
+  
+label:has(:focus:valid){
+    color: green;
+}
+
+label:has(:focus-visible:invalid) input{
+    outline-color: pink;
+}
+  
+label:has(:focus-visible:valid) input{
+    outline-color: green;
+}
+
+.none{
+    display: none;
+}
+
+label:has(:focus:invalid) .icon-cancel ,label:has(:focus:valid) .icon-check{
+    display: block;
+}
+
+.formulario__grupo{
+    margin-bottom: 20px;
+}
+
+.formulario__grupo:has(:focus:invalid) .formulario_mensaje{
+    display: block;
+}
+
+.formulario__grupo:has(:focus:valid) .formulario_mensaje{
+    display: none;
+}
+
+.formulario_mensaje{
+    margin-top: 5px;
+    color: #bb2929;
+    background-color: lightpink;
+    border: 1px solid #bb2929;
+	font-size: 12px;
+	margin-bottom: 0;
+    height: fit-content;
+	width: fit-content;
+}
+
+.formulario_mensaje p {
+	margin: 4px;
+}
+/* ----- -----  Mediaqueries ----- ----- */
+@media screen and (width >= 768px) {
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 25%;
+	}
+}

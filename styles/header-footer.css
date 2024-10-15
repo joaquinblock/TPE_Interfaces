@@ -1,0 +1,269 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+    --color-principal: rgb(255, 69, 0);
+    --color-principal-1: rgb(255, 69, 0, 0.3);
+    --color-secundario: #00BFFF;
+    --background_header: #505050;
+    --background_1: #7D7D7D;
+    --background_2: #505050;
+    --background_3: #000000;
+    --background_footer: #050505;
+    --white: #ffffff;
+}
+
+html, body{
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background-color: var(--background_header);
+    color: var(--white);
+}
+header .boton-header:hover, .linea{
+    background-color: var(--color-principal-1);
+    border: 1px solid var(--background_2);
+}
+.logo {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.iconos-header{
+    width: 60%;
+    height: 60%;
+    margin-inline: auto;
+}
+
+.logo img {
+    width: 3.75em;
+    height: 3.75em;
+}
+
+header button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 var(--color-principal-1);
+        background-color: var(--color-principal-1);
+	}
+	100% {
+		box-shadow: 0 0 0 15px rgba(21, 105, 138, 0);
+        background-color: rgba(21, 105, 138, 0);
+	}
+}
+
+.pulse-badge {
+	animation: pulse 0.8s forwards;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: var(--background_footer);
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+    margin-top: auto;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+  }
+
+  .social-icons a img {
+    opacity: 0.5;
+    color: white;
+    /* Aquí aplicas los estilos a las imágenes */
+    width: 30px; /* Ejemplo de tamaño */
+    height: 30px;
+    margin-right: 10px; /* Separación entre las imágenes */
+  }
+  
+  .social-icons a img:hover {
+    /* Estilo cuando pasas el mouse sobre la imagen */
+    opacity: 1; /* Ejemplo de efecto hover */
+    transform: scale(1.2);
+  }
+/* MENU */
+
+button{
+    border-radius: 100%;
+}
+
+.iconos{
+    width: 25px;
+    height: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#boton-menu-hamburguesa{
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    border: 0;
+    background: transparent;
+    gap: 0.5em;
+    cursor: pointer;
+    padding: 1px 6px;
+}
+
+#boton-menu-hamburguesa > div{
+    background: var(--white);
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    transition: all 0.5s;
+    transform-origin: left;
+}
+
+.rotar-arriba {
+    transform: rotate(45deg);
+}
+
+.desaparecer {
+    opacity: 0;
+}
+
+.rotar-abajo {
+    transform: rotate(-45deg);
+}
+
+.menu {
+    background-color: var(--background_2);
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+}
+
+#perfil{
+    right: 0;
+}
+
+.menu li {
+    padding: 5px;
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    color: var(--white);
+    font-family: var(--font_roboto);
+    font-size: var(--size_m);
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    cursor: pointer;
+}
+
+.menu button {
+    font-size: var(--size_m);
+}
+
+.menu a {
+    color: var(--white_200);
+}
+
+.menu li:hover {
+    background-color: var(--color-principal-1);
+    color: var(--color-principal);
+}
+
+#menu-hamburguesa{
+    left: 0;
+}
+
+#menu-hamburguesa li {
+    align-items: center;
+    justify-content: center;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media (width >= 768px) {
+
+  .footer-container {
+    flex-direction: row;
+    align-items: start;
+  }
+  .footer-section {
+    text-align: start;
+  }
+}

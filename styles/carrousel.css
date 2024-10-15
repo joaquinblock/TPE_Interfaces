@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root{
+    --color-shadow: rgba(0, 191, 255, 0.9);
+    --font_k2d: "K2D", sans-serif;
+    --acento: rgb(255, 215, 0, 0.7);
+    --buton-color: rgb(105, 211, 105);
+    --button-color-1: rgb(105, 211, 105, 0.7);
+    --color-principal-2: rgb(255, 69, 0, 0.7);
+    --color-black-2: rgb(0,0,0, 0.7);
+}
+
+.link-plain,
+.link-plain:hover,
+.link-plain:active,
+.link-plain:visited {
+    text-decoration: none;
+}
+
+.link-plain-f,
+.link-plain-f:hover,
+.link-plain-f:active,
+.link-plain-f:focus,
+.link-plain-f:visited {
+    color: initial;
+    text-decoration: none !important;
+}
+
+.carrousel-section {
+    gap: 20px;
+    font-family: "Roboto";
+    padding-top: 15px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flecha-container {
+    padding: 0;
+    height: 100%;
+    width: 38px;
+    color: rgb(255, 255, 255);
+    background-color: #00000089;
+    border: 0px solid;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.flecha-container:focus {
+    outline: none;
+}
+
+.flecha-container:active {
+    border-style: solid;
+    outline: none;
+    user-select: none;
+}
+
+.flecha-container svg {
+    width: 10px;
+}
+
+.flecha-izq {
+    border-radius: 0%;
+    top: 0;
+    bottom: 0;
+}
+
+.flecha-der {
+    border-radius: 0%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.div-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.cards_container {
+    position: relative;
+    max-width: 1140px;
+    margin-inline: auto;
+    margin-bottom: 20px;
+}
+
+.card {
+    margin-inline: auto;
+    width: 150px;
+    user-select: none;
+    outline: none;
+    background-color: #DDDDDD;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 12px;
+}
+
+.card:hover{
+    transform: scale(1.1);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.card a {
+    display: block;
+}
+
+
+.card-image {
+    border: 0px;
+    width: 100%;
+    height: 184px; 
+}
+
+.carrousel-flexbox {
+
+    display: flex;
+    flex-wrap: nowrap; /*para que no se ajusten y aparezca el scrolling*/
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    background-color: var(--color-principal-1);
+    border: 1px solid var(--color-principal);
+    padding-left: 10px;
+}
+
+.carrousel-flexbox .card {
+    flex: 0 0 auto;
+}
+
+.carrousel-flexbox .card:last-child {
+    margin-right: 15px;
+}
+
+.carrousel-flexbox .card:last-child::after {
+    content: ' ';
+    display: inline-block;
+}
+
+
+
+.carrousel-flexbox::-webkit-scrollbar {
+    display: none;
+}
+
+.card-title, .card-description{
+    padding-left: 5px;
+}
+
+.card-title {
+    margin-top: 8px;
+    font-size: 14px;
+    max-height: 3em;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card-description {
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.va-points {
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    color: white;
+}
+
+.va-seeall {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 1px solid #DDDDDD;
+    text-align: center;
+    padding: 10px;
+}
+
+.transicion-der {
+    transform: perspective(1000px) rotateY(30deg) rotateX(10deg) scale(0.95);
+}
+
+.transicion-izq {
+    transform: perspective(1000px) rotateY(-30deg) rotateX(10deg) scale(0.95);
+}
+
+.price-tag {
+    font-family: var(--font_k2d);
+    background-color: #00c0d4; /* Color azul similar */
+    color: black; /* Color del texto */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 0 40px 40px 0; /* Curva en la esquina derecha */
+    display: inline-flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    position: absolute; /* Para posicionar el icono */
+    top: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.card-buttons{
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.comprar{
+    background-color: rgb(105, 211, 105);
+}
+
+.jugar{
+    background-color: var(--color-principal);
+    border: 1px solid rgb(0, 0, 0, 0.5);
+}
+
+.mas_info{
+    border: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+.button-card{
+    font-size: 12px;
+    width: 40px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-card img{
+    width: 18px;
+    height: 18px;
+}
+
+.comprar:hover{
+    transform: scale(1.1) rotate(3deg);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button-card.comprar img {
+    transition: transform 0.5s ease; /* Suaviza el movimiento */
+}
+
+.button-card.comprar:hover img {
+    animation: bounce 1s cubic-bezier(1, 1.5, 1, 0.5) forwards; /* La animación durará 1 segundo */
+}
+
+.jugar:hover{
+    animation: flabber 0.9s;
+} 
+
+.juego-nuevo{
+    margin: 20px;
+    color: white;
+    width: 768px;
+    background-color: var(--acento);
+
+}
+
+.anuncio > div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.anuncio button{
+    width: 84px;
+    margin: auto 10px;
+}
+
+.anuncio{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.nuevo{
+    background-color: var(--color-principal-2);
+}
+
+.descuento{
+    background-color: var(--button-color-1);
+}
+
+.precio{
+    background-color: var(--color-black-2);
+}
+
+.carrousel-flexbox, .juego-nuevo{
+    border-radius: 10px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0); 
+    }
+    60% {
+        transform: translateX(60%); 
+    }
+    75%{
+        transform: translateX(30%);
+    }
+    100% {
+        transform: translateX(60%); /* Rebote hacia atrás un poco */
+    }
+}
+
+@keyframes flabber {
+	0% {
+		transform: scaleX(1);
+	}
+	30% {
+		transform: scale3d(1.15, 0.75, 1);
+	}
+	40% {
+		transform: scale3d(0.75, 1.15, 1);
+	}
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+	60% {
+		transform: scale3d(0.95, 1.15, 1);
+	}
+	70% {
+		transform: scale3d(1.15, 0.95, 1);
+	}
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+
+
+@media (width >= 768px) {
+    .card {
+        width: 130px;
+    }
+
+    .carrousel-flexbox{
+        flex-direction: row;
+    }
+    .flecha-container {
+        display: block;
+    }
+
+    .card-title {
+        padding-left: 5px;
+        margin-top: 8px;
+        font-size: 14px;
+        animation: scroll 10s linear infinite;
+        -webkit-animation: scroll 10s linear infinite;
+        max-height: 3em; /* Limitar la altura */
+        text-overflow: ellipsis;
+        white-space: nowrap; /* Evitar el salto de línea */
+    }
+
+    .seguir-jugando{
+        margin-inline: 50px;
+        width: 450px;
+    }
+
+
+}

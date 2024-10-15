@@ -1,0 +1,375 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #ffffff;
+}
+
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+.formulario {
+	display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formulario__label {
+	display: flex;
+	font-weight: 700;
+	padding: 0 0 4px 0;
+	cursor: pointer;
+}
+
+.formulario__input {
+	width: 100%;
+	background: #ffffff;
+	border: 1px solid #D3D3D3;
+	border-radius: 10px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__grupo-input{
+    display: flex;
+    gap: 1em;
+}
+
+.formulario__input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario_mensaje{
+    margin-top: 5px;
+    color: #bb2929;
+    background-color: lightpink;
+    border: 1px solid #bb2929;
+	font-size: 12px;
+	margin-bottom: 0;
+    height: fit-content;
+	width: fit-content;
+    display: none;
+}
+
+.formulario__checkbox {
+	margin-right: 10px;
+}
+
+.formulario__grupo-terminos, 
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+	grid-column: span 2;
+}
+
+.formulario__mensaje p {
+	margin: 0;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formulario__btn {
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: #FF4500;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+
+.formulario__btn:hover {
+	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+
+.formulario__mensaje-exito {
+	font-size: 14px;
+	color: #119200;
+}
+
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+.visible{
+    opacity: 1;
+}
+.invisible{
+    opacity: 0;
+}
+
+.formulario__grupo-input img{
+    width: 25;
+    height: 45;
+}
+
+.checkbox-container{
+    margin: 10px;
+}
+.spinner {
+    width: 20px;
+    height: 20px;
+    
+    border: 2.5px solid #fffc;
+    border-top-color: #09f;
+    border-radius: 100%;
+
+    animation: spin 1s infinite; /*lo que se gira es el circulo el azul queda fijo*/
+}
+
+@keyframes spin {
+    to {transform: rotate(360deg);}
+}
+
+/* Checkbox */
+.checkbox{
+    
+    box-sizing: border-box;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ffffff;
+    border: 1.5px solid #C1C1C1;
+    border-radius: 2px;
+    cursor: pointer; /*indica que es clickeable*/
+}
+
+input[type="checkbox"] {
+    accent-color: #FF4500; /* Color rojo */
+}
+
+.recaptcha{
+    height: 77px;
+    width: 295px;
+    margin: 25px auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #f9f9f9;
+    stroke: #d7dbe4;
+    border-radius: 4px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#texto-recaptcha-2{
+    /* Texto Recaptcha */
+    margin: 0px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    color: #555555;
+}
+
+#texto-recaptcha-1{
+    margin: 0px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    color: #000000;
+
+}
+
+.recaptcha-logo{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    text-align: center;
+}
+
+.checkbox-text-container{
+    display: flex;
+    align-items: center;
+}
+
+.formulario__grupo button{
+    border: none;
+    width: 110px; /**/
+    height: 45px;
+    background: #ffffff;
+	border: 1px solid #D3D3D3;
+	border-radius: 10px;
+    position: relative;
+}
+
+.flecha{
+    margin-inline: 7px;
+    margin-top: 2px;
+    position: absolute;
+    right: 0;
+}
+
+.text-buttons{
+    color: #ffffff;
+    margin: 0px auto;
+}
+
+.check-security-password{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    font-size: 12px;
+    height: 20px;
+}
+
+
+.check-security-password > div{
+    background-color: #D9D9D9;
+    width: 3.125em;
+    height: 0.25em;
+    border-radius: 5px;
+    position: relative;
+    top: 25%;
+}
+
+.check-security-password p{
+    position: relative;
+    top: 0;
+    margin: 0;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.check-security-password .red{
+    background-color: #D00E17;
+    width: 3.125em;
+    height: 0.25em;
+}
+
+.check-security-password .yellow{
+    background-color: #FFB700;
+}
+
+.check-security-password .green-good{
+    background-color: rgb(112, 187, 37);
+}
+
+.check-security-password .green-excelent{
+    background-color: #0e852a;
+}
+
+.red-text-color{
+    color: #D00E17;
+}
+
+.yellow-text-color{
+    color: #FFB700;
+}
+
+.green-good-text-color{
+    color: rgb(112, 187, 37);
+}
+
+.green-excelent-text-color{
+    color: #0e852a;
+}
+
+.hidden{
+    display: none;
+}
+.error, .succes{
+    display: block;
+}
+
+.form-link-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.form-link-login a{
+    text-decoration: none;
+    color: #FF4500;
+}
+
+.opcion{
+    width: 100%;
+    font-size: 12px;
+    height: 23px;
+    align-content: center;
+}
+
+.opcion:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.border-left{
+    border-left: 3px solid #000000;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.contenedor-opciones{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.contenedor-dias, .contendor-meses, .contendor-anios{
+    height: 280px;
+    width: 110px;
+    overflow-y: auto;
+    touch-action: pan-y; /* Asegura que el usuario pueda desplazarse verticalmente en pantallas táctiles */
+  -webkit-overflow-scrolling: touch; /* Habilita un desplazamiento suave en iOS */ 
+    margin-inline: 1.5px;
+}
+
+/* ----- -----  Mediaqueries ----- ----- */
+@media screen and (width >= 768px) {
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 100%;
+	}
+}

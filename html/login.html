@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/login.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login">
+        <h2>Inicion de sesión</h2>
+    </div>
+    <form action="" class="formulario" id="formulario">
+            <!-- Grupo: Correo Electronico -->
+        <div class="formulario__grupo" id="grupo__correo">
+            <label for="correo" class="formulario__label">
+                Correo Electrónico
+                <div class="formulario__grupo-input">
+                    <input  type="email" required class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                    <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
+                    <img class="none icon-check" src="../iconos/check-icon.svg"></img>
+                </div>
+            </label>
+            <div class="formulario_mensaje none">
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion
+                    bajo.</p>
+            </div>
+        </div>
+
+        <!-- Grupo: Contraseña -->
+        <div class="formulario__grupo" id="grupo__password">
+            <label for="password2" class="formulario__label">
+                Contraseña
+                <div class="formulario__grupo-input">
+                    <input required type="password" class="formulario__input" name="password2" id="password2">
+                    <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
+                    <img class="none icon-check" src="../iconos/check-icon.svg"></img>
+                </div>
+            </label>
+            
+            <div class="formulario_mensaje none">
+                <p">Ingrese su contraseña</p>
+            </div>
+        </div>
+
+        <!-- Manetener sesion iniciada -->
+        <p>
+            <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+            Mantener sesion iniciada
+        </p>
+    </form>
+    
+
+    <!-- Recaptcha -->
+			<div class="recaptcha">
+				<div class="checkbox-text-container">
+					<div class="checkbox-container">
+						<div class="checkbox"></div>
+					</div>
+					<p id="texto-recaptcha-1">No soy un robot</p>
+				</div>
+				<div class="recaptcha-logo">
+					<img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
+					<p id="texto-recaptcha-2">Privacidad - Condiciones</p>
+				</div>  
+			</div>
+
+    <!-- Iniciar sesion -->
+    <div class="formulario__grupo-btn-enviar">
+        <button class="formulario__btn"><a href="../html/home.html">Iniciar sesión</a></button>
+        <a href="">¿Has olvidado la contraseña?</a>
+    </div>
+
+    <div class="form-link-login">
+        <p>¿No tienes una cuenta?</p>
+        <a href="../html/formulario.html">Crear una cuenta</a>
+    </div>
+
+    <script src="../js/formulario.js"></script>
+    <script src="../js/recaptcha.js"></script>
+</body>
+
+</html>
