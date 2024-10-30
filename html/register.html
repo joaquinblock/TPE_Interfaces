@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/register.css">
+	<link rel="stylesheet" href="../styles/header-footer.css">
+    <title>Formulario</title>
+</head>
+<body>
+	<!-- HEADER -->
+    <header>
+		<button class="boton-header" id="boton-menu-hamburguesa">
+		  <div class="linea"></div>
+		  <div class="linea"></div>
+		  <div class="linea"></div>
+		</button>
+	
+		<div class="logo">
+			<a href=""><img src="../img/image.png" alt="logo">Pixel Play</a>
+		  </div>
+	
+		<div class="right_options">
+	
+		  <button class="boton-header invisible" id="boton-carrito">
+			<img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+		  </button>
+		  <button class="boton-header invisible" id="boton-perfil">
+			<img src="../iconos/icon-user.svg" class="iconos-header">
+		  </button>
+	
+		  <nav id="perfil" class="menu invisible">
+			<ul>
+			  <li><a href="#">Mi perfil</a></li>
+			  <li><a href="./formulario.html">Registrarse</a></li>
+			</ul>
+		  </nav>
+		</div>
+	
+		<nav id="menu-hamburguesa" class="menu invisible">
+		  <ul>
+			<li><img class="iconos" src="../iconos/icon-2-people.png" alt="">2 jugadores</li>
+			<li><img class="iconos" src="../iconos/icon-soccer.png" alt="">Fútbol</li>
+			<li><img class="iconos" src="../iconos/icon-pool.png" alt="">Billar</li>
+			<li><img class="iconos" src="../iconos/icon-basket.png" alt="">Baloncesto</li>
+			<li><img class="iconos" src="../iconos/icon-gun.png" alt="">Disparos</li>
+			<li><img class="iconos" src="../iconos/icon-flag.png" alt="">Carreras</li>
+			<li><img class="iconos" src="../iconos/icon-pacman.svg" alt="">Clásicos</li>
+	
+		  </ul>
+		</nav>
+	</header>
+
+	<!-- MAIN -->
+
+    <main>
+		<form action="" class="formulario" id="formulario">
+			<h1>Registro</h1>
+			<h2>Personal</h2>
+			
+			<!-- Grupo: Nombre -->
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre Completo</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="John Doe">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p>El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Usuario -->
+			<div class="formulario__grupo" id="grupo__usuario">
+				<label for="usuario" class="formulario__label">Usuario <p>(opcional)</p></label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="john123">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p>El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+			</div>
+
+
+			<!-- Grupo Edad -->
+			<div class="formulario__grupo">
+				<label for="nombre" class="formulario__label">Fecha de Nacimiento</label>
+				<div class="contenedor-opciones">
+					<select class="contenedor-dias">
+						<option value="" disabled selected>Día</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+				
+					<select class="contenedor-meses">
+						<option value="" disabled selected>Mes</option>
+						<option value="Enero">Enero</option>
+						<option value="Febrero">Febrero</option>
+						<option value="Marzo">Marzo</option>
+						<option value="Abril">Abril</option>
+						<option value="Mayo">Mayo</option>
+						<option value="Junio">Junio</option>
+						<option value="Julio">Julio</option>
+						<option value="Agosto">Agosto</option>
+						<option value="Septiembre">Septiembre</option>
+						<option value="Octubre">Octubre</option>
+						<option value="Noviembre">Noviembre</option>
+						<option value="Diciembre">Diciembre</option>
+					</select>
+				
+					<select class="contenedor-anios">
+						<option value="" disabled selected>Año</option>
+						<option value="1990">1990</option>
+						<option value="1991">1991</option>
+						<option value="1992">1992</option>
+						<option value="1993">1993</option>
+						<option value="1994">1994</option>
+						<option value="1995">1995</option>
+						<option value="1996">1996</option>
+						<option value="1997">1997</option>
+						<option value="1998">1998</option>
+						<option value="1999">1999</option>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+						<option value="2006">2006</option>
+						<option value="2007">2007</option>
+						<option value="2008">2008</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+					</select>
+				</div>
+				
+			</div>
+
+			<h2 id="h2-cuenta">Cuenta</h2>
+			<!-- Grupo: Correo Electronico -->
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="correo" class="formulario__label">Correo Electrónico</label>
+				<div class="formulario__grupo-input">
+					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Contraseña -->
+			<div class="formulario__grupo" id="grupo__password">
+				<label for="password" class="formulario__label">Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password" id="password">
+					<img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="check-security-password hidden">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <p>Mensaje</p>
+                </div>
+                <div class="formulario_mensaje none">
+                    <p>La contraseña debe tener al menos:</p>
+                    <ul>
+                        <li><p>8 caracteres</p></li>
+                        <li><p>Una letra mayúscula y un número</p></li>
+                        <li><p>un carácter especial (como @, #, !, etc.)</p></li>
+                    </ul>
+                    
+                </div>
+			</div>
+
+			<!-- Grupo: Contraseña 2 -->
+			<div class="formulario__grupo" id="grupo__password2">
+				<label for="password2" class="formulario__label">Repetir Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password2" id="password2">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p">Ambas contraseñas deben ser iguales.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Teléfono -->
+			<div class="formulario__grupo" id="grupo__telefono">
+				<label for="telefono" class="formulario__label">Teléfono</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567">
+                    <img class="invisible" src="../iconos/error-icon.svg"></img>
+				</div>
+                <div class="formulario_mensaje">
+                    <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                </div>
+			</div>
+
+			<!-- Grupo: Terminos y Condiciones -->
+			<div class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</div>
+
+			<!-- Recaptcha -->
+			<div class="recaptcha">
+				<div class="checkbox-text-container">
+					<div class="checkbox-container">
+						<div class="checkbox"></div>
+					</div>
+					<p id="texto-recaptcha-1">No soy un robot</p>
+				</div>
+				<div class="recaptcha-logo">
+					<img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
+					<p id="texto-recaptcha-2">Privacidad - Condiciones</p>
+				</div>  
+			</div>
+
+			<div class="formulario__mensaje_error hidden" id="formulario__mensaje">
+				<p><b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+			<div class="formulario__grupo-btn-enviar none">
+				<button type="submit" class="formulario__btn">Registrarse</button>
+			</div>
+
+			<div class="form-link-login">
+				<p>¿Ya tienes una cuenta?</p>
+				<a href="../html/login.html">Iniciar sesion</a>
+			</div>
+		</form>
+		<!-- FOOTER -->
+		<footer>
+			<div class="footer-container">
+			  <div class="footer-section">
+				<h3>Pixel Play</h3>
+			  </div>
+			  <div class="footer-section">
+				<h4>Product</h4>
+				<ul>
+				  <li><a href="#">Features</a></li>
+				  <li><a href="#">Integrations</a></li>
+				  <li><a href="#">Pricing</a></li>
+				  <li><a href="#">FAQ</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Company</h4>
+				<ul>
+				  <li><a href="#">Privacy</a></li>
+				  <li><a href="#">Terms of Service</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Developers</h4>
+				<ul>
+				  <li><a href="#">Developer API</a></li>
+				  <li><a href="#">Documentation</a></li>
+				  <li><a href="#">Guides</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Follow Us</h4>
+				<div class="social-icons">
+					<a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
+					<a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
+					<a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
+				</div>
+			  </div>
+			</div>
+			<div class="footer-bottom">
+			  <p>© 2024 Pixel Play. All rights reserved.</p>
+			</div>
+		  </footer>
+        
+	</main>
+    <script src="../js/formulario.js"></script>
+</body>
+</html>

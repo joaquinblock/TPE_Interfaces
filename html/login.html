@@ -12,124 +12,182 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div class="logo">
-            <a href="../html/home.html"><img src="../img/pixel-play1.png" alt="logo"></a>
-        </div>
-    </header>
-    <form action="" class="formulario" id="formulario">
-        <div class="login">
-            <h2>Inicion de sesión</h2>
-        </div>
-            <!-- Grupo: Correo Electronico -->
-        <div class="formulario__grupo" id="grupo__correo">
-            <label for="correo" class="formulario__label">
-                Correo Electrónico
-                <div class="formulario__grupo-input">
-                    <input  type="email" required class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
-                    <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
-                    <img class="none icon-check" src="../iconos/check-icon.svg"></img>
-                </div>
-            </label>
-            <div class="formulario_mensaje none">
-                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion
-                    bajo.</p>
-            </div>
-        </div>
+		<button class="boton-header invisible" id="boton-menu-hamburguesa">
+		  <div class="linea"></div>
+		  <div class="linea"></div>
+		  <div class="linea"></div>
+		</button>
+	
+		<div class="logo">
+		  <a href=""><img src="../img/image.png" alt="logo">Pixel Play</a>
+		</div>
+	
+		<div class="right_options">
+	
+		  <button class="boton-header invisible" id="boton-carrito">
+			<img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+		  </button>
+		  <button class="boton-header invisible" id="boton-perfil">
+			<img src="../iconos/icon-user.svg" class="iconos-header">
+		  </button>
+	
+		  <nav id="perfil" class="menu invisible">
+			<ul>
+			  <li><a href="#">Mi perfil</a></li>
+			  <li><a href="./formulario.html">Registrarse</a></li>
+			</ul>
+		  </nav>
+		</div>
+	
+		<nav id="menu-hamburguesa" class="menu invisible">
+		  <ul>
+			<li><img class="iconos" src="../iconos/icon-2-people.png" alt="">2 jugadores</li>
+			<li><img class="iconos" src="../iconos/icon-soccer.png" alt="">Fútbol</li>
+			<li><img class="iconos" src="../iconos/icon-pool.png" alt="">Billar</li>
+			<li><img class="iconos" src="../iconos/icon-basket.png" alt="">Baloncesto</li>
+			<li><img class="iconos" src="../iconos/icon-gun.png" alt="">Disparos</li>
+			<li><img class="iconos" src="../iconos/icon-flag.png" alt="">Carreras</li>
+			<li><img class="iconos" src="../iconos/icon-pacman.svg" alt="">Clásicos</li>
+	
+		  </ul>
+		</nav>
+	</header>
 
-        <!-- Grupo: Contraseña -->
-        <div class="formulario__grupo" id="grupo__password">
-            <label for="password2" class="formulario__label">
-                Contraseña
-                <div class="formulario__grupo-input">
-                    <input required type="password" class="formulario__input" name="password2" id="password2">
-                    <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
-                    <img class="none icon-check" src="../iconos/check-icon.svg"></img>
-                </div>
-            </label>
-            
-            <div class="formulario_mensaje none">
-                <p">Ingrese su contraseña</p>
-            </div>
-        </div>
 
-        <!-- Manetener sesion iniciada -->
-        <p>
-            <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-            Mantener sesion iniciada
-        </p>
-        
-        <!-- Recaptcha -->
-                <div class="recaptcha">
-                    <div class="checkbox-text-container">
-                        <div class="checkbox-container">
-                            <div class="checkbox"></div>
-                        </div>
-                        <p id="texto-recaptcha-1">No soy un robot</p>
+    <main>
+		<form action="" class="formulario" id="formulario">
+			<h1>Inicio de sesión</h1>
+
+                <!-- Grupo: Correo Electronico -->
+                    <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">
+                    Correo Electrónico
+                    <div class="formulario__grupo-input">
+                        <input  type="email" required class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                        <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
+                        <img class="none icon-check" src="../iconos/check-icon.svg"></img>
                     </div>
-                    <div class="recaptcha-logo">
-                        <img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
-                        <p id="texto-recaptcha-2">Privacidad - Condiciones</p>
-                    </div>  
+                </label>
+                <div class="formulario_mensaje none">
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion
+                        bajo.</p>
                 </div>
-
-        <!-- Iniciar sesion -->
-        <div class="formulario__grupo-btn-enviar">
-            <button class="formulario__btn"><a href="../html/home.html">Iniciar sesión</a></button>
-            <a href="">¿Has olvidado la contraseña?</a>
-        </div>
-
-        <div class="form-link-login">
-            <p>¿No tienes una cuenta?</p>
-            <a href="../html/formulario.html">Crear una cuenta</a>
-        </div>
-    </form>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-          <div class="footer-section">
-            <h3>Pixel Play</h3>
-          </div>
-          <div class="footer-section">
-            <h4>Product</h4>
-            <ul>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Integrations</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Developers</h4>
-            <ul>
-              <li><a href="#">Developer API</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Guides</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
-                <a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
-                <a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
             </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2024 Pixel Play. All rights reserved.</p>
-        </div>
-      </footer>
 
-    <script src="../js/formulario.js"></script>
-    <script src="../js/recaptcha.js"></script>
+                <!-- Grupo: Contraseña -->
+            <div class="formulario__grupo" id="grupo__password">
+                <label for="password2" class="formulario__label">
+                    Contraseña
+                    <div class="formulario__grupo-input">
+                        <input required type="password" class="formulario__input" name="password2" id="password2">
+                        <img class="none icon-cancel" src="../iconos/error-icon.svg"></img>
+                        <img class="none icon-check" src="../iconos/check-icon.svg"></img>
+                    </div>
+                </label>
+                
+                <div class="formulario_mensaje none">
+                    <p">Ingrese su contraseña</p>
+                </div>
+            </div>
+
+            <!-- Grupo: Mantener sesion iniciada -->
+			<div class="formulario__grupo" id="grupo__terminos">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">Mantener sesion iniciada
+			</div>
+
+
+			<!-- Recaptcha -->
+			<div class="recaptcha">
+				<div class="checkbox-text-container">
+					<div class="checkbox-container">
+						<div class="checkbox"></div>
+					</div>
+					<p id="texto-recaptcha-1">No soy un robot</p>
+				</div>
+				<div class="recaptcha-logo">
+					<img src="../iconos/recaptcha-logo.svg" alt="" srcset="">
+					<p id="texto-recaptcha-2">Privacidad - Condiciones</p>
+				</div>  
+			</div>
+
+            <div class="formulario__mensaje_error hidden" id="formulario__mensaje">
+				<p><b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+			<div class="formulario__grupo-btn-enviar">
+				<button type="submit" class="formulario__btn">Iniciar sesión</button>
+			</div>
+
+			<div class="form-link-login">
+				<p>¿No tienes una cuenta?</p>
+				<a href="../html/register.html">Registrarse</a>
+			</div>
+
+            <div class="container-linea">
+                <p>O:</p>
+                <div class="linea-divisora"></div>
+            </div>
+            
+
+            <div class="container-continuar">
+                <div class="continuar-con">
+                    <img src="../iconos/continuar-fb.svg" alt="">
+                    <p>Continuar con Facebook</p>
+                </div>
+                <div class="continuar-con">
+                    <img src="../iconos/continuar-google.svg" alt="">
+                    <p>Continuar con Google</p>
+                </div>
+                
+            </div>
+		</form>
+		<!-- FOOTER -->
+		<footer>
+			<div class="footer-container">
+			  <div class="footer-section">
+				<h3>Pixel Play</h3>
+			  </div>
+			  <div class="footer-section">
+				<h4>Product</h4>
+				<ul>
+				  <li><a href="#">Features</a></li>
+				  <li><a href="#">Integrations</a></li>
+				  <li><a href="#">Pricing</a></li>
+				  <li><a href="#">FAQ</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Company</h4>
+				<ul>
+				  <li><a href="#">Privacy</a></li>
+				  <li><a href="#">Terms of Service</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Developers</h4>
+				<ul>
+				  <li><a href="#">Developer API</a></li>
+				  <li><a href="#">Documentation</a></li>
+				  <li><a href="#">Guides</a></li>
+				</ul>
+			  </div>
+			  <div class="footer-section">
+				<h4>Follow Us</h4>
+				<div class="social-icons">
+					<a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
+					<a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
+					<a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
+				</div>
+			  </div>
+			</div>
+			<div class="footer-bottom">
+			  <p>© 2024 Pixel Play. All rights reserved.</p>
+			</div>
+		  </footer>
+        
+	</main>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>

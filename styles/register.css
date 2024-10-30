@@ -1,26 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
 	box-sizing: border-box;
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: var(--font-nunito);
 	background: #ffffff;
     background: linear-gradient(to bottom, var(--background_1) 0%, var(--background_2) 50%, var(--background_3) 83%);
 }
 
 :root{
+    --font-poppins: "Poppins", sans-serif;
+    --font-nunito: "Nunito", sans-serif;
     --background_1: #7D7D7D;
     --background_2: #505050;
     --background_3: #000000;
+    --color-line: #d9d9d9;
+    --medium: 500;
+    --bold: 700;
+    --black: 900;
+    --regular: 400;
+}
+
+.formulario__grupo{
+    margin-top: 20px;
 }
 
 .formulario {
     padding: 15px;
 	display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 400px;
-    margin: auto;
+    width: 300px;
+    margin: 30px auto;
     background-color: white;
     border-radius: 10px;
 }
@@ -30,6 +43,8 @@ body {
 	font-weight: 700;
 	padding: 0 0 4px 0;
 	cursor: pointer;
+    font-size: 14px;
+    font-weight: var(--regular);
 }
 
 .formulario__input {
@@ -45,7 +60,7 @@ body {
 
 .formulario__grupo-input{
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .formulario__input:focus {
@@ -64,6 +79,17 @@ body {
     height: fit-content;
 	width: fit-content;
     display: none;
+}
+
+.formulario__mensaje_error{
+    margin: 15px auto;
+    color: #bb2929;
+    background-color: lightpink;
+    border: 1px solid #bb2929;
+	font-size: 12px;
+    height: fit-content;
+	width: fit-content;
+    padding: 10px;
 }
 
 .formulario__checkbox {
@@ -89,7 +115,7 @@ body {
 .formulario__btn {
 	height: 45px;
 	line-height: 45px;
-	width: 30%;
+	width: 70%;
 	background: #FF4500;
 	color: #fff;
 	font-weight: bold;
@@ -180,7 +206,7 @@ input[type="checkbox"] {
 
 .recaptcha{
     height: 77px;
-    width: 295px;
+    width: 260px;
     margin: 25px auto;
     padding-left: 16px;
     padding-right: 16px;
@@ -327,6 +353,7 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: center;
     gap: 4px;
+    margin-top: 5px;
 }
 
 .form-link-login a{
@@ -356,20 +383,44 @@ input[type="checkbox"] {
 }
 
 .contenedor-dias, .contendor-meses, .contendor-anios{
-    height: 280px;
-    width: 110px;
     overflow-y: auto;
-    touch-action: pan-y; /* Asegura que el usuario pueda desplazarse verticalmente en pantallas táctiles */
-  -webkit-overflow-scrolling: touch; /* Habilita un desplazamiento suave en iOS */ 
-    margin-inline: 1.5px;
+}
+
+
+.contenedor-opciones > select {
+    border-radius: 10px;
+    border: 1px solid #D3D3D3;
+    width: 111px;
+    height: 48px;
+    margin-right: 5px;
+}
+
+.formulario h1 {
+    font-family: var(--font-poppins);
+}
+
+.formulario > h2 {
+    margin-top: 40px;
+    font-weight: var(--medium);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.formulario__label > p {
+    color: var(--color-line);
+    margin-inline: 0.2em;
+    font-size: 14px;
+}
+
+#h2-cuenta{
+    margin-top: 40px;
 }
 
 /* ----- -----  Mediaqueries ----- ----- */
 @media screen and (width >= 768px) {
 	.formulario {
 		grid-template-columns: 1fr;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 50px auto;
+        width: 527px;
 	}
 
 	.formulario__grupo-terminos, 
@@ -378,7 +429,12 @@ input[type="checkbox"] {
 		grid-column: 1;
 	}
 
+    .recaptcha{
+        height: 77px;
+        width: 295px;
+    }
+
 	.formulario__btn {
-		width: 100%;
+		width: 75%;
 	}
 }

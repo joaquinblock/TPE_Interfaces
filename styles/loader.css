@@ -1,3 +1,9 @@
+:root{
+	--color-principal: rgb(255, 69, 0);
+	--color-principal-2: rgb(255, 69, 0, 0.7);
+	--border: 0.5em;
+}
+
 .loader {
     width: 100%;
     height: 100vh;
@@ -14,23 +20,20 @@
 }
 
 h2 {
-	--color-light: lightskyblue;
-	--color-dark: deepskyblue;
-	--border: 0.5em;
 	position: relative;
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 2rem;
 	text-transform: uppercase;
 	border-bottom: var(--border) solid var(--color-light);
-	color: var(--color-light);
+	color: var(--color-principal-2);
 }
 
 h2::before {
 	position: absolute;
 	content: attr(loading-text);
-	color: var(--color-dark);
+	color: var(--color-principal);
 	overflow: hidden;
-	border-bottom: var(--border) solid var(--color-dark);
+	border-bottom: var(--border) solid var(--color-principal);
 	animation: loading 5s linear forwards; /*fowards termina con la animacion*/
 }
 

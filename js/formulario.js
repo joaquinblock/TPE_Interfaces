@@ -1,6 +1,44 @@
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
+let checkbox = document.querySelector(".checkbox");
+let captchaVerificado = false;
+const mensajeError = document.getElementById('formulario__mensaje'); // Obtenemos el div de error
 
+const selectDia = document.querySelector('.contenedor-dias');
+const selectMes = document.querySelector('.contenedor-meses');
+const selectAnio = document.querySelector('.contenedor-anios');
+
+checkbox.addEventListener("click", () => {
+    // Verifica si el checkbox ya tiene la clase 'verificado'
+    if (!checkbox.classList.contains('verificado')) {
+        checkbox.classList.remove('checkbox');
+        checkbox.classList.add('spinner');
+
+        setTimeout(cambiar, 3000);
+    }
+});
+
+function cambiar(){
+    let spinner = document.querySelector(".spinner");
+    // Eliminar la clase spinner
+    spinner.classList.remove('spinner');
+
+    // Crear un nuevo elemento de imagen
+    let img = document.createElement('img');
+    img.src = "../iconos/check-icon.svg"; // Cambia a la ruta de tu imagen
+    img.alt = "Check Icon"; // Añade un texto alternativo para la imagen
+
+    // Limpiar el contenido del div antes de agregar la imagen
+    spinner.innerHTML = ''; // Elimina cualquier contenido existente
+
+    // Agregar la imagen al div
+    spinner.appendChild(img);
+
+    // Agregar la clase 'verificado' para evitar más clics
+    spinner.classList.add('verificado');
+
+	captchaVerificado = true;
+}
 
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -204,75 +242,10 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 	
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked ){
+	if(campos.usuario && campos.nombre && campos.password && campos.correo && campos.telefono && terminos.checked && captchaVerificado){
 		window.location.href = "../html/home.html";	
 	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+		mensajeError.classList.remove('hidden');
 	}
-});
-
-let opciones = document.querySelectorAll(".opcion");
-opciones.forEach(element => {
-    element.addEventListener("click", () => {
-		const tieneClase = Array.from(opciones).some(el => el.classList.contains("border-left"));
-
-		console.log(element.textContent);
-        // Si no hay ningún elemento con la clase "border-left", se puede agregar la clase al elemento clickeado
-        if (!tieneClase) {
-            element.classList.add("border-left");
-			if (/^\d{1,2}$/.test(element.textContent)) {
-				document.querySelector("#dia").textContent = element.textContent;
-			}
-			// Si es un número de cuatro cifras (un año)
-			else if (/^\d{4}$/.test(element.textContent)) {
-				document.querySelector("#anio").textContent = element.textContent;
-			}
-			// Si no es un número, se considera un mes
-			else if (isNaN(element.textContent)) {
-				document.querySelector("#mes").textContent = element.textContent;
-			}
-
-        }else if (element.classList.contains("border-left")){
-			element.classList.remove("border-left");
-			if (/^\d{1,2}$/.test(element.textContent)) {
-				document.querySelector("#dia").textContent = "Día";
-			}
-			// Si es un número de cuatro cifras (un año)
-			else if (/^\d{4}$/.test(element.textContent)) {
-				document.querySelector("#anio").textContent =  "Mes";
-			}
-			// Si no es un número, se considera un mes
-			else if (isNaN(element.textContent)) {
-				document.querySelector("#mes").textContent = "Año";
-			}
-		}
-    });
-});
-
-// Función para alternar flechas y gestionar el estado de los botones
-function toggleFlechas(buttonId) {
-	const button = document.getElementById(buttonId);
-	const flechas = button.getElementsByClassName('flecha');
-	
-	// Ocultar o mostrar las flechas
-	for (let i = 0; i < flechas.length; i++) {
-	  flechas[i].classList.toggle('hidden');
-	}
-}
-  
-  // Event listeners para los tres botones
-document.getElementById('dia').addEventListener('click', function() {
-	toggleFlechas('dia');
-	document.querySelector('.contenedor-dias').classList.toggle('invisible');
-});
-  
-document.getElementById('mes').addEventListener('click', function() {
-	toggleFlechas('mes');
-	document.querySelector('.contendor-meses').classList.toggle('invisible');
-});
-  
-document.getElementById('anio').addEventListener('click', function() {
-	toggleFlechas('anio');
-	document.querySelector('.contendor-anios').classList.toggle('invisible');
 });
 
