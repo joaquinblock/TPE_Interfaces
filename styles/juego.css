@@ -108,12 +108,20 @@ body{
     font-size: 20px;
     font-weight: var(--medium);
 }
-.game{
+.game, .game-selection{
     color: white;
     font-weight: var(--black);
     margin-inline: auto;
     width: 95%;
     height: 40%;
+}
+
+.game-selection{
+    background-color: white;
+    position: absolute;
+    z-index: 20;
+    left: 13px;
+    height: 634px;
 }
 
 .game-img{
@@ -305,6 +313,14 @@ iframe{
     margin-inline: auto;
 }
 
+.hidden{
+    display: none;
+}
+
+.fichero > button {
+    background-color: red;
+}
+
 
 @media (width >= 600px) {
     .ubication-game{
@@ -316,6 +332,12 @@ iframe{
         height: 870px;
         width: 80%;
         margin-inline: auto;
+    }
+
+    .game-selection{
+        height: 870px;
+        width: 1335px;
+        left: 167px;
     }
 
     .comentarios-container{
