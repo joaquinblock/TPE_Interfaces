@@ -26,12 +26,31 @@
     --font_k2d: "K2D", sans-serif;
 }
 
+
+/* Selecciona la barra de desplazamiento completa */
 ::-webkit-scrollbar {
-    display: none;
+    width: 12px; /* Ancho de la barra */
+}
+
+/* Personaliza el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo */
+}
+
+/* Personaliza el "pulgar" o "thumb" de la barra (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del thumb */
+    border-radius: 6px; /* Redondeo de las esquinas */
+}
+
+/* Cambia el color del thumb al hacer hover sobre la barra */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 body {
     background: linear-gradient(to bottom, var(--background_1) 0%, var(--background_2) 50%, var(--background_3) 83%);
+    overflow-x: hidden;
 }
 
 a {

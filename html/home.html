@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/image.png" type="image/png">
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/carrousel.css">
     <link rel="stylesheet" href="../styles/loader.css">
@@ -14,88 +15,134 @@
 <body>
     <!-- HEADER -->
     <header>
-        <button class="boton-header" id="boton-menu-hamburguesa">
-            <div class="linea"></div>
-            <div class="linea"></div>
-            <div class="linea"></div>
-        </button>
-
-        <div class="logo">
-            <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
-          </div>
-
-        <div class="right_options">
-
-            <button class="boton-header" id="boton-carrito">
-                <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+        <div class="container-header">
+            <button class="boton-header" id="boton-menu-hamburguesa">
+                <div class="linea"></div>
+                <div class="linea"></div>
+                <div class="linea"></div>
             </button>
-            <button class="boton-header" id="boton-perfil">
-                <img src="../iconos/icon-user.svg" class="iconos-header">
-            </button>
-
-            <nav id="perfil" class="menu invisible">
+    
+            <div class="logo">
+                <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+              </div>
+    
+            <div class="right_options">
+    
+                <button class="boton-header" id="boton-carrito">
+                    <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+                </button>
+                <button class="boton-header" id="boton-perfil">
+                    <img src="../iconos/icon-user.svg" class="iconos-header">
+                </button>
+    
+                <nav id="perfil" class="menu invisible">
+                    <ul>
+                        <li><a href="#">Mi perfil</a></li>
+                    </ul>
+                </nav>
+            </div>
+    
+            <nav id="menu-hamburguesa" class="menu invisible">
                 <ul>
-                    <li><a href="#">Mi perfil</a></li>
-                    <li><a href="./formulario.html">Registrarse</a></li>
+                    <li><img class="iconos" src="../iconos/icon-2-people.png" alt=""><p>2 jugadores</p></li>
+                    <li><img class="iconos" src="../iconos/icon-soccer.png" alt=""><p>Fútbol</p></li>
+                    <li><img class="iconos" src="../iconos/icon-pool.png" alt=""><p>Billar</p></li>
+                    <li><img class="iconos" src="../iconos/icon-basket.png" alt=""><p>Baloncesto</p></li>
+                    <li><img class="iconos" src="../iconos/icon-gun.png" alt=""><p>Disparos</p></li>
+                    <li><img class="iconos" src="../iconos/icon-flag.png" alt=""><p>Carreras</p></li>
+                    <li><img class="iconos" src="../iconos/icon-pacman.svg" alt=""><p>Clásicos</p></li>
+    
                 </ul>
             </nav>
         </div>
-
-        <nav id="menu-hamburguesa" class="menu invisible">
-            <ul>
-                <li><img class="iconos" src="../iconos/icon-2-people.png" alt="">2 jugadores</li>
-                <li><img class="iconos" src="../iconos/icon-soccer.png" alt="">Fútbol</li>
-                <li><img class="iconos" src="../iconos/icon-pool.png" alt="">Billar</li>
-                <li><img class="iconos" src="../iconos/icon-basket.png" alt="">Baloncesto</li>
-                <li><img class="iconos" src="../iconos/icon-gun.png" alt="">Disparos</li>
-                <li><img class="iconos" src="../iconos/icon-flag.png" alt="">Carreras</li>
-                <li><img class="iconos" src="../iconos/icon-pacman.svg" alt="">Clásicos</li>
-
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <section class="continue">
-            <h3>Seguir jugando</h3>
-            <section class="carrousel-section">    
-                <div class="cards_container seguir-jugando">
-                        <div class="carrousel-flexbox">
-                            <div class="card"> 
-                                <img class="card-image" src="../img/pes-2006.png">
-                                    <div class="card-title">Pes 2006 </div>
-                                    <div class="card-buttons">
-                                        <button type="button" class="button-card jugar">
-                                            <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
-                                        </button>
-                                        <button class="button-card mas_info">+ info</button>
-                                    </div>
-                                </a> </div>
-                            <div class="card"> <a class="link-plain" target="_blank"> <img class="card-image"
-                                        src="../img/100-lucha.png">
-                                    <div class="card-title">100 lucha</div>
-                                    <div class="card-buttons">
-                                        <button class="button-card jugar">
-                                            <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
-                                        </button>
-                                        <button class="button-card mas_info">+ info</button>
-                                    </div>
-                                </a> </div>
-                            <div class="card"> <a class="link-plain" target="_blank"> 
-                                    <img class="card-image"
-                                        src="../img/ajedrez.png">
-                                    <div class="card-title">Ajedrez </div>
-                                    <div class="card-buttons">
-                                        <button class="button-card jugar">
-                                            <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
-                                        </button>
-                                        <button class="button-card mas_info">+ info</button>
-                                    </div>
-                                </a> 
-                            </div>
+        <section class="juego-nuevo">
+            <img class="img-juego-nuevo" src="https://www.mundodeportivo.com/alfabeta/hero/2018/10/alfabetajuega-god-of-war-muerte-01-170418.jpg?width=768&aspect_ratio=16:9&format=nowebp" alt="">
+            <div class="anuncio">
+                <div class="nuevo">
+                    <h4>Nuevo</h4>
                 </div>
-            </section>                 
+                <div class="descuento">
+                    <h4>52%</h4>
+                </div>
+                <div class="precio">
+                    <h4><del>$199</del></h4>
+                    <h4>$99</h4>
+                </div>
+                <button class="button-card comprar">
+                    <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                    <p>Añadir</p>
+                </button>
+            </div>
+            
         </section>
+        <section class="carrousel-section">
+            <h3>Lo mas jugados</h3>    
+            <div class="cards_container">
+                    <button class="flecha-izq flecha-container">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                            class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z">
+                            </path>
+                        </svg>
+                    </button>
+                    
+                    <div class="carrousel-flexbox">
+                        <div class="card-banner"> 
+                            <img class="image-banner" src="../img/roblox.png">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                        </div>
+                        <div class="card-banner"> 
+                            <img class="image-banner" src="../img/4-en-linea.png">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                        </div>
+                        <div class="card-banner"> 
+                            <img class="image-banner" src="../img/fifa-18.png">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                        </div>
+                        
+                        <div class="card-banner"> 
+                            <img class="image-banner" src="../img/plantas-zombies.png">
+                        </div>
+                        <div class="card-banner-1"> 
+                            <img class="image-banner-1" src="../img/ajedrez-juego.jpg" alt="">
+                            <img class="image-banner-1" src="../img/minecraft-banner.webp">
+                        </div>
+                    </div>
+        
+                    <button class="flecha-der flecha-container">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                    </button>
+            </div>
+        </section>
+        </div>
         <!-- CARROUSELS -->
             <section class="carrousel-section">
                 <h3>Jugar</h3>    
@@ -117,6 +164,7 @@
                                     <div class="card-buttons">
                                         <button type="button" class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -127,6 +175,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -138,6 +187,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -149,6 +199,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -160,6 +211,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -171,6 +223,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -182,6 +235,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -193,6 +247,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -204,6 +259,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -215,6 +271,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -226,6 +283,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -237,6 +295,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -248,6 +307,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -259,6 +319,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -269,7 +330,7 @@
                                     <div class="card-title">4 en linea: CSGO</div>
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
-                                            <a href="../html/juego.html"><img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt=""></a>
+                                            <a href="../html/juego.html"><img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">Jugar</a>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -281,6 +342,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -292,6 +354,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -303,6 +366,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -314,6 +378,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card jugar">
                                             <img src="https://img.icons8.com/?size=256w&id=7317&format=png" alt="">
+                                            Jugar
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -352,6 +417,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -366,6 +432,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -380,6 +447,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -394,6 +462,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -408,6 +477,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -422,6 +492,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -436,6 +507,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -450,6 +522,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -464,6 +537,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -478,6 +552,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -492,6 +567,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -506,6 +582,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -520,6 +597,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -534,6 +612,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -548,6 +627,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -562,6 +642,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -576,6 +657,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -590,6 +672,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -604,6 +687,7 @@
                                     <div class="card-buttons">
                                         <button class="button-card comprar">
                                             <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
+                                            <p>Añadir</p>
                                         </button>
                                         <button class="button-card mas_info">+ info</button>
                                     </div>
@@ -623,32 +707,14 @@
                         </button>
             </div>
         </section>
-        <section class="juego-nuevo">
-            <img src="https://www.mundodeportivo.com/alfabeta/hero/2018/10/alfabetajuega-god-of-war-muerte-01-170418.jpg?width=768&aspect_ratio=16:9&format=nowebp" alt="">
-            <div class="anuncio">
-                <div class="nuevo">
-                    <h4>Nuevo</h4>
-                </div>
-                <div class="descuento">
-                    <h4>52%</h4>
-                </div>
-                <div class="precio">
-                    <h4><del>$199</del></h4>
-                    <h4>$99</h4>
-                </div>
-                <button class="button-card comprar">
-                    <img src="https://img.icons8.com/?size=256w&id=85180&format=png" alt="">
-                </button>
-            </div>
-        </section>
     </main>
     <!-- FOOTER -->
     <footer>
+        <div class="logo-footer">
+            <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+        </div>
         <div class="footer-container">
-          <div class="footer-section">
-            <h3>Pixel Play</h3>
-          </div>
-          <div class="footer-section">
+          <div class="footer-section" id="footer-section-2">
             <h4>Product</h4>
             <ul>
               <li><a href="#">Features</a></li>
@@ -657,27 +723,26 @@
               <li><a href="#">FAQ</a></li>
             </ul>
           </div>
-          <div class="footer-section">
-            <h4>Company</h4>
+          <div class="footer-section" id="footer-section-3">
+            <h4>Termns & conditions</h4>
             <ul>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Copyright</a></li>
+              <li><a href="#">Legal bases</a></li>
+              <li><a href="#">Privacy policy</a></li>
             </ul>
           </div>
-          <div class="footer-section">
-            <h4>Developers</h4>
+          <div class="footer-section" id="footer-section-4">
+            <h4>Owners</h4>
             <ul>
-              <li><a href="#">Developer API</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Guides</a></li>
+              <li><a href="#">Joaquin Block</a></li>
             </ul>
           </div>
-          <div class="footer-section">
+          <div class="footer-section" id="footer-section-5">
             <h4>Follow Us</h4>
             <div class="social-icons">
-                <a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
-                <a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
-                <a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
+                <a href="#"><img src="../iconos/icono-fb.svg" alt=""></a>
+                <a href="#"><img src="../iconos/icon-ig.svg" alt=""></a>
+                <a href="#"><img src="../iconos/icon-tw.svg" alt=""></a>
             </div>
           </div>
         </div>

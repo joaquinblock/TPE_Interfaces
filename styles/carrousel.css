@@ -8,6 +8,8 @@
     --button-color-1: rgb(105, 211, 105, 0.7);
     --color-principal-2: rgb(255, 69, 0, 0.7);
     --color-black-2: rgb(0,0,0, 0.7);
+    --background_1: #7D7D7D;
+    --background_2: #505050;
 }
 
 .link-plain,
@@ -31,8 +33,15 @@
     font-family: "Roboto";
     padding-top: 15px;
     margin-top: 15px;
+    margin-inline: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.cards_container {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .flecha-container {
@@ -84,17 +93,40 @@
     text-align: center;
 }
 
-.cards_container {
-    position: relative;
-    max-width: 1140px;
+.card-banner{
     margin-inline: auto;
-    margin-bottom: 20px;
+    width: 410px;
+    height: 222px;
+    border: 3px solid #505050;
+    user-select: none;
+    outline: none;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 12px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-banner-1{
+    margin-inline: auto;
+    width: 410px;
+    height: 228px;
+    user-select: none;
+    outline: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
 }
 
 .card {
-    margin-inline: auto;
-    width: 150px;
-    height: 222px;
+    margin-inline: 160px;
+    width: 400px;
+    height: 360px;
     border: 3px solid #505050;
     user-select: none;
     outline: none;
@@ -103,8 +135,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     position: relative;
-    font-size: 12px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    font-size: 15px;
 }
 
 .card:hover{
@@ -116,11 +148,24 @@
     display: block;
 }
 
+.image-banner{
+    border: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.image-banner-1{
+    border: 0px;
+    width: 47.5%;
+    height: 100%;
+    border: 3px solid #505050;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
+}
 
 .card-image {
     border: 0px;
     width: 100%;
-    height: 135px;
+    height: 281px;
     border-radius: 0 20px 0 0;
 }
 
@@ -161,7 +206,7 @@
 
 .card-title {
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 18px;
     max-height: 3em;
     overflow: hidden;
     color: rgb(0, 0, 0);
@@ -169,6 +214,7 @@
     margin-top: 0px;
     margin-bottom: 10px;
     font-weight: 700;
+    text-align: center;
 }
 
 .card-description {
@@ -229,6 +275,7 @@
 
 .comprar{
     background-color: rgb(105, 211, 105);
+    border: 1px solid rgb(0, 0, 0, 0.5);
 }
 
 .jugar{
@@ -237,20 +284,26 @@
 }
 
 .mas_info{
-    border: 1px solid rgb(0, 0, 0, 0.2);
+    background-color: white;
+    border: none
 }
 
 .button-card{
-    font-size: 12px;
-    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+    width: 120px;
     height: 25px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .button-card img{
     width: 18px;
     height: 18px;
+    margin-bottom: 3px;
 }
 
 .comprar:hover{
@@ -263,7 +316,24 @@
 }
 
 .button-card.comprar:hover img {
-    animation: bounce 1s cubic-bezier(1, 1.5, 1, 0.5) forwards; /* La animación durará 1 segundo */
+    animation: bounce 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; /* La animación durará 1 segundo */
+}
+
+.button-card.comprar:hover p {
+    display: none;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(-100%); 
+    }
+    100% {
+        transform: translateX(150%); /* Rebote hacia atrás un poco */
+    }
+}
+
+.hidden{
+    display: none;
 }
 
 .jugar:hover{
@@ -271,11 +341,17 @@
 } 
 
 .juego-nuevo{
-    margin: 20px;
+    margin: 20px auto;
     color: white;
     width: 768px;
     background-color: var(--acento);
 
+}
+
+.img-juego-nuevo{
+    width: 99%;
+    margin: 4px;
+    border-radius: 10px 10px 0 0;
 }
 
 .anuncio > div {
@@ -316,20 +392,11 @@
     border-radius: 10px;
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateX(0); 
-    }
-    60% {
-        transform: translateX(60%); 
-    }
-    75%{
-        transform: translateX(30%);
-    }
-    100% {
-        transform: translateX(60%); /* Rebote hacia atrás un poco */
-    }
+h3{
+    font-size: 30px;
+    margin-inline: 170px;
 }
+
 
 @keyframes flabber {
 	0% {
@@ -357,13 +424,33 @@
 
 
 
-@media (width >= 768px) {
+@media (width >= 600px) {
     .card {
-        width: 130px;
+        width: 160px;
+        height: 222px;
+        font-size: 14px;
+        margin-inline: 0;
+    }
+
+    .button-card {
+        font-size: 12px;
+        width: 70px;
+        gap: 0;
+    }
+
+    .card-buttons{
+        gap: 0em;
+    }
+
+    .card-image{
+        height: 135px;
     }
 
     .carrousel-flexbox{
         flex-direction: row;
+    }
+    .carrousel-section{
+        max-width: 97vw;
     }
     .flecha-container {
         display: block;
@@ -372,17 +459,37 @@
     .card-title {
         padding-left: 5px;
         margin-top: 8px;
-        font-size: 14px;
-        animation: scroll 10s linear infinite;
-        -webkit-animation: scroll 10s linear infinite;
-        max-height: 3em; /* Limitar la altura */
-        text-overflow: ellipsis;
-        white-space: nowrap; /* Evitar el salto de línea */
+        font-size: 15px;
+        text-align: center;
     }
 
     .seguir-jugando{
         margin-inline: 50px;
         width: 450px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .jugar{
+        gap: 0.25em;
+    }
+
+    .card-banner{
+        width: 373px;
+        height: 222px;
+    }
+
+    .card-banner-1{
+        width: 139px;
+        height: 228px;
+        flex-direction: column;
+    }
+
+    .image-banner-1{
+        height: 45%;
+        width: 96%;
     }
 
 

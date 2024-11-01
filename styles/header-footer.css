@@ -7,7 +7,8 @@
 
 :root {
     --color-principal: rgb(255, 69, 0);
-    --color-principal-1: rgb(255, 69, 0, 0.3);
+    --color-principal-1: rgb(255, 69, 0, 0.2);
+    --color-principal-2: rgb(255, 69, 0, 0.8);
     --color-secundario: #00BFFF;
     --background_header: #505050;
     --background_1: #7D7D7D;
@@ -26,16 +27,20 @@ html, body{
 }
 
 /*HEADER*/
-header {
+header{
+  background-color: var(--background_header);
+}
+
+.container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px;
-    background-color: var(--background_header);
     color: var(--white);
+    margin-inline: auto;
+    max-width: 95%;
 }
 
-header a{
+header a, .logo-footer a{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,8 +48,12 @@ header a{
   color: white;
   font-size: 20px;
 }
-header .boton-header:hover, .linea{
-    background-color: var(--color-principal-1);
+
+.logo-footer a{
+  font-size: 40px;
+}
+header .boton-header:hover{
+    background-color: var(--color-principal-2);
     border: 1px solid var(--background_2);
 }
 .logo {
@@ -76,8 +85,8 @@ header button {
 
 @keyframes pulse {
 	0% {
-		box-shadow: 0 0 0 0 var(--color-principal-1);
-        background-color: var(--color-principal-1);
+		box-shadow: 0 0 0 0 var(--color-principal-2);
+        background-color: var(--color-principal-2);
 	}
 	100% {
 		box-shadow: 0 0 0 15px rgba(21, 105, 138, 0);
@@ -102,7 +111,6 @@ footer {
   .footer-container {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
     position: relative;
@@ -113,7 +121,6 @@ footer {
   
   .footer-section {
     flex: 1;
-    margin: 10px;
     text-align: center;
   }
   
@@ -156,6 +163,10 @@ footer {
     height: 30px;
     margin-right: 10px; /* Separación entre las imágenes */
   }
+
+  .right_options{
+    margin-right: 10px;
+  }
   
   .social-icons a img:hover {
     /* Estilo cuando pasas el mouse sobre la imagen */
@@ -178,18 +189,18 @@ a {
 }
 
 #boton-menu-hamburguesa{
+    padding: 1px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     border: 0;
     background: transparent;
     gap: 0.5em;
     cursor: pointer;
-    padding: 1px 6px;
 }
 
 
@@ -217,7 +228,7 @@ a {
 .menu {
     background-color: var(--background_2);
     position: absolute;
-    top: 100px;
+    top: 75px;
     z-index: 1;
 }
 
@@ -226,17 +237,20 @@ a {
 }
 
 .menu li {
-    padding: 5px;
+    padding: 10px;
     display: flex;
-    gap: 8px;
+    gap: 15px;
     list-style: none;
     color: var(--white);
     font-family: var(--font-nunito);
     font-size: var(--size_m);
-    justify-content: center;
-    align-items: center;
     width: 150px;
     cursor: pointer;
+    
+}
+
+.menu img{
+  margin-left: 10px;
 }
 
 .menu button {
@@ -257,11 +271,6 @@ a {
     left: 0;
 }
 
-#menu-hamburguesa li {
-    align-items: center;
-    justify-content: center;
-}
-
 .visible {
     opacity: 1;
     visibility: visible;
@@ -272,13 +281,35 @@ a {
     visibility: hidden;
 }
 
-@media (width >= 768px) {
+@media (width >= 600px) {
+
+  header{
+    width: 100vw;
+  }
+
+  footer{
+    width: 100vw;
+  }
+
+  h3{
+    margin:0;
+  }
+  
+  .container-header {
+      max-width: 98%;
+  }
 
   .footer-container {
     flex-direction: row;
     align-items: start;
+    max-width: 98%;
   }
+
   .footer-section {
-    text-align: start;
+    flex: initial;
+    margin-inline: auto;     /* Centra el div dentro del contenedor */
+    text-align: justify;
   }
+
+
 }

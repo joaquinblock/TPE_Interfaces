@@ -45,4 +45,32 @@ function handleScroll(direction) {
     }, 300);
 }
 
+// Selecciona todos los botones con la clase 'button-card comprar'
+const buttons1 = document.querySelectorAll('.button-card.comprar');
+
+// Agrega un event listener a cada botón
+buttons1.forEach(button => {
+    button.addEventListener('click', function() {
+        // `this` se refiere al botón específico que se presionó
+
+        // Selecciona el <img> y <p> hijos del botón presionado
+        const img = this.querySelector('img');
+        const p = this.querySelector('p');
+
+        if (img.src.endsWith('icon-cross.png')) {
+            img.src = '../iconos/icon-cart.png';
+        } else {
+            img.src = '../iconos/icon-cross.png';
+        }
+
+        if (p.textContent == 'Añadido'){
+            p.textContent = 'Añadir';
+        }else {
+            p.textContent = 'Añadido';
+        }
+        
+    });
+});
+
+
 

@@ -4,58 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>4 en linea: CSGO</title>
+  <link rel="icon" href="../img/image.png" type="image/png">
   <link rel="stylesheet" href="../styles/header-footer.css">
   <link rel="stylesheet" href="../styles/juego.css">
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <button class="boton-header" id="boton-menu-hamburguesa">
-      <div class="linea"></div>
-      <div class="linea"></div>
-      <div class="linea"></div>
-    </button>
-
-    <div class="logo">
-		  <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
-		</div>
-
-    <div class="right_options">
-
-      <button class="boton-header" id="boton-carrito">
-        <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
-      </button>
-      <button class="boton-header" id="boton-perfil">
-        <img src="../iconos/icon-user.svg" class="iconos-header">
+ <!-- HEADER -->
+ <header>
+  <div class="container-header">
+      <button class="boton-header" id="boton-menu-hamburguesa">
+          <div class="linea"></div>
+          <div class="linea"></div>
+          <div class="linea"></div>
       </button>
 
-      <nav id="perfil" class="menu invisible">
-        <ul>
-          <li><a href="#">Mi perfil</a></li>
-          <li><a href="./formulario.html">Registrarse</a></li>
-        </ul>
+      <div class="logo">
+          <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+        </div>
+
+      <div class="right_options">
+
+          <button class="boton-header" id="boton-carrito">
+              <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+          </button>
+          <button class="boton-header" id="boton-perfil">
+              <img src="../iconos/icon-user.svg" class="iconos-header">
+          </button>
+
+          <nav id="perfil" class="menu invisible">
+              <ul>
+                  <li><a href="#">Mi perfil</a></li>
+              </ul>
+          </nav>
+      </div>
+
+      <nav id="menu-hamburguesa" class="menu invisible">
+          <ul>
+              <li><img class="iconos" src="../iconos/icon-2-people.png" alt=""><p>2 jugadores</p></li>
+              <li><img class="iconos" src="../iconos/icon-soccer.png" alt=""><p>Fútbol</p></li>
+              <li><img class="iconos" src="../iconos/icon-pool.png" alt=""><p>Billar</p></li>
+              <li><img class="iconos" src="../iconos/icon-basket.png" alt=""><p>Baloncesto</p></li>
+              <li><img class="iconos" src="../iconos/icon-gun.png" alt=""><p>Disparos</p></li>
+              <li><img class="iconos" src="../iconos/icon-flag.png" alt=""><p>Carreras</p></li>
+              <li><img class="iconos" src="../iconos/icon-pacman.svg" alt=""><p>Clásicos</p></li>
+
+          </ul>
       </nav>
-    </div>
-
-    <nav id="menu-hamburguesa" class="menu invisible">
-      <ul>
-        <li><img class="iconos" src="../iconos/icon-2-people.png" alt="">2 jugadores</li>
-        <li><img class="iconos" src="../iconos/icon-soccer.png" alt="">Fútbol</li>
-        <li><img class="iconos" src="../iconos/icon-pool.png" alt="">Billar</li>
-        <li><img class="iconos" src="../iconos/icon-basket.png" alt="">Baloncesto</li>
-        <li><img class="iconos" src="../iconos/icon-gun.png" alt="">Disparos</li>
-        <li><img class="iconos" src="../iconos/icon-flag.png" alt="">Carreras</li>
-        <li><img class="iconos" src="../iconos/icon-pacman.svg" alt="">Clásicos</li>
-
-      </ul>
-    </nav>
-  </header>
+  </div>
+</header>
   <main>
     <div class="ubication-game">
       <div class="ubication">
-        <a id="home"  href="">Home</a> <p class="arrow-right">→</p>
+        <a id="home"  href="../html/home.html">Home</a> <p class="arrow-right">→</p>
         Juegos <p class="arrow-right">→</p>
         Favoritos <p class="arrow-right">→</p>
         4LineaCSGO
@@ -111,7 +113,7 @@
         <p>Comentar</p>
       </div>
       <div class="comentario">
-        <div class="comentario-perfil">
+        <div class="comentario-perfil" id="comentario-propio">
           <img src="../iconos/icon-profile1.png" alt="">
           <p>Tú</p>
         </div>
@@ -160,11 +162,11 @@
   </main>
   <!-- FOOTER -->
   <footer>
+    <div class="logo-footer">
+        <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+    </div>
     <div class="footer-container">
-      <div class="footer-section">
-        <h3>Pixel Play</h3>
-      </div>
-      <div class="footer-section">
+      <div class="footer-section" id="footer-section-2">
         <h4>Product</h4>
         <ul>
           <li><a href="#">Features</a></li>
@@ -173,27 +175,26 @@
           <li><a href="#">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-section">
-        <h4>Company</h4>
+      <div class="footer-section" id="footer-section-3">
+        <h4>Termns & conditions</h4>
         <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Copyright</a></li>
+          <li><a href="#">Legal bases</a></li>
+          <li><a href="#">Privacy policy</a></li>
         </ul>
       </div>
-      <div class="footer-section">
-        <h4>Developers</h4>
+      <div class="footer-section" id="footer-section-4">
+        <h4>Owners</h4>
         <ul>
-          <li><a href="#">Developer API</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Guides</a></li>
+          <li><a href="#">Joaquin Block</a></li>
         </ul>
       </div>
-      <div class="footer-section">
+      <div class="footer-section" id="footer-section-5">
         <h4>Follow Us</h4>
         <div class="social-icons">
-          <a href="#"><img src="/iconos/icono-fb.svg" alt=""></a>
-          <a href="#"><img src="/iconos/icon-ig.svg" alt=""></a>
-          <a href="#"><img src="/iconos/icon-tw.svg" alt=""></a>
+            <a href="#"><img src="../iconos/icono-fb.svg" alt=""></a>
+            <a href="#"><img src="../iconos/icon-ig.svg" alt=""></a>
+            <a href="#"><img src="../iconos/icon-tw.svg" alt=""></a>
         </div>
       </div>
     </div>
