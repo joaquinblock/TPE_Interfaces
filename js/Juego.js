@@ -14,7 +14,7 @@ export class Juego{
         this.radioFicha = radioFicha;
         this.margenFichas = (this.radioFicha*2) + margen; //el diametro + un numero x
         this.background = new Image();
-        this.posIniX = width*0.33;
+        this.posIniX = width*0.28;
         this.posIniY = height*0.16;
         this.margenLineas = margen/2;
         this.turnoJugador = Math.random() < 0.5 ? "red" : "blue"; //elije o red o blue
@@ -44,13 +44,13 @@ export class Juego{
         };
 
         this.posFichaTerror = {
-            4: {x: 100,
-                y: this.posIniY + this.margenFichas * 3},
-            5: {x: 200,
+            4: {x: this.width -100,
                 y: this.posIniY},
-            6: {x: 200,
+            5: {x: this.width -100,
                 y: this.posIniY},
-            7: {x: 200,
+            6: {x: this.width -100,
+                y: this.posIniY},
+            7: {x: this.width -100,
                 y: this.posIniY},
         };
         this.fichasTotales= columnas * filas;
@@ -67,12 +67,13 @@ export class Juego{
     }
     // Espera a que la imagen se cargue antes de dibujarla en el canvas
     inicializarJuego(){
+        console.log(this.height);
         this.background.src = '../img/background-cs.jpeg';
 
         this.background.onload = () => {
             this.dibujarFondo();
             this.dibujarIconReset();
-            this.dibujarSelectorJuego();
+            
             this.tablero1.dibujarTablero( undefined, this.opacidad);
             this.fichero.llenarFichero();
             // Agrega un pequeño retraso antes de llamar a dibujarFichas
@@ -144,7 +145,7 @@ export class Juego{
             }
             this.fichero.dibujarFichas();
             //this.dibujarIconReset(); titila cuando lo pones 
-            this.dibujarSelectorJuego();
+          
         }
     }
 
@@ -203,8 +204,14 @@ export class Juego{
     }
 
     dibujarTurno() {
+        let turno = "";
         this.ctx.font = "30px Arial";
-        this.ctx.fillText(`Turno del jugador: ${this.turnoJugador}`, 10, 30); // Dibuja el turno en la parte superior izquierda
+        if(this.turnoJugador === "red"){
+            turno="Terrorist";
+        }else{
+            turno = "Counter";
+        }
+        this.ctx.fillText(`Turno del jugador: ${turno}`, 10, 30); // Dibuja el turno en la parte superior izquierda
     }
 
     dibujarIconReset() {
@@ -217,16 +224,6 @@ export class Juego{
         };
     }
 
-    
-    dibujarSelectorJuego(){
-        this.ctx.save();
-        this.ctx.font = '30px Arial';
-        this.ctx.fillStyle = 'white';
-        this.ctx.textAlign = 'left';
-
-        this.ctx.fillText(`Modo de juego: ${this.modoJuego}`, this.width - 350, this.height - 10);
-        this.ctx.restore();
-    }
     
     caerFicha(ficha, columna) {
         const yObjetivo = this.obtenerYObjetivo(columna); // Calcula la posición de caída
@@ -362,7 +359,7 @@ export class Juego{
         this.limpiarCanvas();
         this.dibujarFondo();
         this.dibujarIconReset();
-        this.dibujarSelectorJuego();
+       
         this.tablero1.dibujarTablero();
         this.fichero.dibujarFichas();
     }

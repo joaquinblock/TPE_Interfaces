@@ -68,16 +68,28 @@
     <div class="game">
       <canvas class="hidden" id="gameCanvas" width="1920" height="1080"></canvas>
         <div class="cronometro-container">
-            <div id="cronometro" class="cronometro-display">00:00</div>
+            <div id="cronometro" class="cronometro-display hidden">00:00</div>
         </div>
       <div class="game-selection hidden">
         <div class="fichero">
-            <div class="grupo-fichas-1">
-              <button class="button1 blue animation" data-id="1">1</button>
-              <button class="button1 blue animation" data-id="2">2</button>
-              <button class="button1 blue animation" data-id="3">3</button>
-              <button class="button1 blue animation" data-id="4">4</button>
-            </div>
+          <div class="grupo-fichas-1">
+            <button class="button1 blue animation" data-id="1">
+                <img src="../img/counter.svg" alt="Ficha 1">
+                
+            </button>
+            <button class="button1 blue animation" data-id="2">
+                <img src="../img/counter.svg" alt="Ficha 2">
+                
+            </button>
+            <button class="button1 blue animation" data-id="3">
+                <img src="../img/counter.svg" alt="Ficha 3">
+          
+            </button>
+            <button class="button1 blue animation" data-id="4">
+                <img src="../img/counter.svg" alt="Ficha 4">
+                
+            </button>
+        </div>
       
             <div class="modo-juego">
               <button class="button1 yellow animation" data-id="4">4 en linea</button>
@@ -86,13 +98,25 @@
               <button class="button1 yellow animation"data-id="7">7 en linea</button>
             </div>
             <div class="grupo-fichas-2">
-                <button class="button1 red animation" data-id="1">1</button>
-                <button class="button1 red animation" data-id="2">2</button>
-                <button class="button1 red animation" data-id="3">3</button>
-                <button class="button1 red animation"data-id="4">4</button>
-            </div>
+              <button class="button1 red animation" data-id="1">
+                  <img src="../img/terror.svg" alt="Ficha 1">
+                  
+              </button>
+              <button class="button1 red animation" data-id="2">
+                  <img src="../img/terror.svg"  alt="Ficha 2">
+                  
+              </button>
+              <button class="button1 red animation" data-id="3">
+                  <img src="../img/terror.svg" alt="Ficha 3">
+                  
+              </button>
+              <button class="button1 red animation" data-id="4">
+                  <img src="../img/terror.svg"  alt="Ficha 4">
+                  
+              </button>
+          </div>
         </div>
-        <button class="button1 green animation" id="start">Iniciar</button>
+        <button class="button1 green animation" id="start">Iniciar Juego</button>
     </div>
       <div class="game-img">
         <div class="button-container">
@@ -103,7 +127,7 @@
         </div>
       </div>
       <div class="controls-container">
-        <p>
+        <p id="x-en-linea">
           4 en linea CSGO
         </p>
         <div class="controls-icons">

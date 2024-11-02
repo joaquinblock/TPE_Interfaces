@@ -117,7 +117,7 @@ body{
     position: relative;
 }
 
-.game-selection{
+.game-selection{   /*rectangulo blanco*/
     background-color: white;
     position: absolute;
     z-index: 20;
@@ -325,6 +325,7 @@ iframe{
    ========================== */
 .fichero{
     display: flex;
+    justify-content: center;
     margin-inline: auto;
 }
 .modo-juego, .grupo-fichas-1, .grupo-fichas-2{
@@ -340,27 +341,31 @@ iframe{
 .button1 {
     position: relative;
     margin: 10px 20px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
     background-color: #ffffff;
     color: #fff;
     border-radius: 7px;
     box-shadow: 0px 7px 1px #6e6e6e;
     cursor: pointer;
 }
+.button1 img, .button2 img{
+    width: 60px;
+
+}
+
+.blue, .red{
+    width: 75px;
+    height: 75px;
+}
 
 .blue {
-    width: 50px;
-    height: 50px;
+    
     border: 2px solid #0082b5;
     background-color: #26ADE4;
     box-shadow: 0px 9px 1px #0082b5;
 }
 
 .red {
-    width: 50px;
-    height: 50px;
+
     border: 2px solid #b50000;;
     background-color: #e32730;
     box-shadow: 0px 9px 1px #b50000;
@@ -369,12 +374,16 @@ iframe{
 
     
 .yellow {
+    
     border: 2px solid #a6a600;;
     background-color: #d6d600;
     box-shadow: 0px 9px 1px #a6a600;
 }
 
 .green {
+    margin-left: 150px;
+    height: 30px;
+    width: 920px;
     border: 2px solid #0d8500;
     background-color: #36b300;
     box-shadow: 0px 9px 1px #0d8500;
@@ -446,6 +455,7 @@ canvas {
     right: 0;
     height: auto; 
     z-index: 1001; 
+    
 }
 
 .cronometro-display {

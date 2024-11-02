@@ -13,6 +13,7 @@ window.onload = () => {
     const buttons2 = document.querySelectorAll('.grupo-fichas-1 .button1');
     const buttons3 = document.querySelectorAll('.grupo-fichas-2 .button1');
     const startButton = document.getElementById('start');
+    const cronometroContainer = document.getElementById('cronometro'); // Contenedor del cronómetro
 
     let activatedButtons = { group1: false, group2: false, group3: false };
 
@@ -71,6 +72,8 @@ window.onload = () => {
         if (checkIfAllActivated()) {
             canvas.classList.remove('hidden');
             alert("¡Todos los botones están activados! Iniciando...");
+            cronometroContainer.classList.remove('hidden'); // Mostrar cronómetro al iniciar
+
 
             const activatedButton = Array.from(buttons1).find(btn => btn.classList.contains('active'));
 
@@ -78,7 +81,8 @@ window.onload = () => {
 
             
             let nEnLinea = parseInt(activatedButton.getAttribute('data-id'), 10); //get Atributte devuelve string, por eso hay que convertirlo a int
-
+            let p = document.getElementById("x-en-linea");
+            p.textContent= `${nEnLinea} en linea CSGO`;
             const cronometro = new Cronometro("cronometro", 10); // Cuenta regresiva de 10
             cronometro.iniciar();
 
@@ -98,16 +102,16 @@ window.onload = () => {
             };
 
             const radiosFichas = {
-                4: 40,
-                5: 35,
-                6: 30,
-                7: 25
+                4: 35,
+                5: 30,
+                6: 25,
+                7: 20,
             };
 
             const margenes = {
-                4: 30,
-                5: 25,
-                6: 20,
+                4: 25,
+                5: 20,
+                6: 15,
                 7: 15
             };
 
