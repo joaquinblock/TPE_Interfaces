@@ -108,12 +108,13 @@ body{
     font-size: 20px;
     font-weight: var(--medium);
 }
-.game, .game-selection{
+.game{
     color: white;
     font-weight: var(--black);
     margin-inline: auto;
     width: 95%;
     height: 40%;
+    position: relative;
 }
 
 .game-selection{
@@ -121,7 +122,8 @@ body{
     position: absolute;
     z-index: 20;
     left: 13px;
-    height: 634px;
+    height: 72.5%;
+    width: 95%;
 }
 
 .game-img{
@@ -317,10 +319,143 @@ iframe{
     display: none;
 }
 
-.fichero > button {
-    background-color: red;
+
+/* ==========================
+   Botones del juego
+   ========================== */
+.fichero{
+    display: flex;
+    margin-inline: auto;
+}
+.modo-juego, .grupo-fichas-1, .grupo-fichas-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    grid-template-rows: auto auto; /* Dos filas automáticas (o puedes especificar una altura) */
+    gap: 5px; /* Espacio entre los botones (opcional) */
 }
 
+.modo-juego{
+    width: 40%;
+}
+.button1 {
+    position: relative;
+    margin: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 0px 7px 1px #6e6e6e;
+    cursor: pointer;
+}
+
+.blue {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #0082b5;
+    background-color: #26ADE4;
+    box-shadow: 0px 9px 1px #0082b5;
+}
+
+.red {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #b50000;;
+    background-color: #e32730;
+    box-shadow: 0px 9px 1px #b50000;
+}
+    
+
+    
+.yellow {
+    border: 2px solid #a6a600;;
+    background-color: #d6d600;
+    box-shadow: 0px 9px 1px #a6a600;
+}
+
+.green {
+    border: 2px solid #0d8500;
+    background-color: #36b300;
+    box-shadow: 0px 9px 1px #0d8500;
+}
+
+/* Animation for buttons */
+.animation {
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+    -o-transition: 0.2s all;
+    -transition: 0.2s all;
+}
+    
+.button:hover {
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    box-shadow: 0px 5px 1px #6e6e6e;
+}
+    
+.active {
+    transform: translateY(8px);
+    -webkit-transform: translateY(8px);
+    box-shadow: 0px 1px 1px #6e6e6e;
+    color: #000000;
+}
+    
+.blue:hover {
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    box-shadow: 0px 5px 1px #0082b5;
+}
+    
+    
+.red:hover {
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    box-shadow: 0px 5px 1px #b50000;
+}
+    
+    
+.yellow:hover {
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    box-shadow: 0px 5px 1px #a6a600;
+}
+
+.green:hover {
+    transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    box-shadow: 0px 5px 1px #0d8500;
+}
+
+/* ==========================
+   CANVAS
+   ========================== */
+
+canvas {
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.cronometro-container {
+    position: absolute;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    top: 0;
+    right: 0;
+    height: auto; 
+    z-index: 1001; 
+}
+
+.cronometro-display {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 @media (width >= 600px) {
     .ubication-game{
@@ -329,15 +464,15 @@ iframe{
     }
 
     .game{
-        height: 870px;
+        height: 90vh;
         width: 80%;
         margin-inline: auto;
     }
 
     .game-selection{
-        height: 870px;
-        width: 1335px;
-        left: 167px;
+        height: 100%;
+        width: 100%;
+        left: 0;
     }
 
     .comentarios-container{
@@ -356,5 +491,4 @@ iframe{
         width: 250px;
         height: 138px;
     }
-
 }
