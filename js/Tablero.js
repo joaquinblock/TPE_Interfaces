@@ -16,35 +16,29 @@ export class Tablero {
     }
 
     dibujarTablero(columnaActual, opacidad) {
-        let x = 0 ;
+        let x = 0;
         let y = 0;
-        let color = "white";
+    
         for (let col = 0; col < this.columnas; col++) {
+            // Dibujar los círculos en cada fila de la columna actual
             for (let row = 0; row < this.filas; row++) {
                 x = this.posIniX + this.margenFichas * col;
                 y = this.posIniY + this.margenFichas * row;
                 this.dibujarCirculo(x, y, opacidad);
             }
-            if (col == columnaActual || col== columnaActual+1){
-                color = this.colorLinea;
-            }else{
-                color = "white";
-            }
-            this.dibujarLineaColumna(x, y, color);
+    
+            // Determinar el color de la línea para la columna actual
+            const color = (col === columnaActual || col === columnaActual + 1) ? this.colorLinea : "white";
+            this.dibujarLineaColumna(x, this.posIniY + this.margenFichas * (this.filas - 1), color);
         }
 
-        if(columnaActual==6){
-            color = this.colorLinea;
-        }else{
-            color = "white";
-        }
-
-        // Línea derecha adicional
-        x = this.posIniX + this.margenFichas * this.columnas;
-        y = this.posIniY  + this.margenFichas * (this.filas - 1);
-
-        this.dibujarLineaColumna(x, y, color);
+        // Línea adicional en la última columna
+        let xFinal = this.posIniX + this.margenFichas * this.columnas;
+        let yFinal = this.posIniY + this.margenFichas * (this.filas - 1);
+        const colorFinal = (columnaActual === this.columnas - 1) ? this.colorLinea : "white";
+        this.dibujarLineaColumna(xFinal, yFinal, colorFinal);
     }
+    
 
     dibujarLineaColumna(xCircle, yCircle, color) {
         const xLine = xCircle - this.radioFicha - this.margenLineas; 
@@ -103,34 +97,22 @@ export class Tablero {
         console.table(this.matriz);
     }
 
-    obtenerColumna(mouseX){
+    obtenerColumna(mouseX) {
         let columna = -1; // Inicializa columna como no válida
-
-        // Verifica en qué columna está el mouse
-        switch (true) {
-            case (mouseX >= this.limiteBase && mouseX < this.limiteBase + this.margenFichas):
-                columna = 0; // Primera columna
-                break;
-            case (mouseX >= this.limiteBase + this.margenFichas && mouseX < this.limiteBase + (2 * this.margenFichas)):
-                columna = 1; // Segunda columna
-                break;
-            case (mouseX >= this.limiteBase + (2 * this.margenFichas) && mouseX < this.limiteBase + (3 * this.margenFichas)):
-                columna = 2; // Tercera columna
-                break;
-            case (mouseX >= this.limiteBase + (3 * this.margenFichas) && mouseX < this.limiteBase + (4 * this.margenFichas)):
-                columna = 3; // Cuarta columna
-                break;
-            case (mouseX >= this.limiteBase + (4 * this.margenFichas) && mouseX < this.limiteBase + (5 * this.margenFichas)):
-                columna = 4; // Quinta columna
-                break;
-            case (mouseX >= this.limiteBase + (5 * this.margenFichas) && mouseX < this.limiteBase + (6 * this.margenFichas)):
-                columna = 5; // Sexta columna
-                break;
-            case (mouseX >= this.limiteBase + (6 * this.margenFichas) && mouseX < this.limiteBase + (7 * this.margenFichas)):
-                columna = 6; // Séptima columna
-                break;
+    
+        // Calcula la cantidad de columnas dinámicamente
+        const columnas = this.columnas; // Este valor debe estar definido según el juego (7, 8, 9, o 10 columnas)
+    
+        for (let i = 0; i < columnas; i++) {
+            let limiteInferior = this.limiteBase + (i * this.margenFichas);
+            let limiteSuperior = limiteInferior + this.margenFichas;
+    
+            if (mouseX >= limiteInferior && mouseX < limiteSuperior) {
+                columna = i; // Asigna la columna correspondiente
+                break; // Sale del bucle una vez que encuentra la columna
+            }
         }
-
+    
         return columna;
-    }
+    }    
 }

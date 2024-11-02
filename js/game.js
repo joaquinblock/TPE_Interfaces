@@ -63,24 +63,26 @@ window.onload = () => {
         }
     };
 
+    let canvas = document.getElementById("gameCanvas");
+    let ctx = canvas.getContext("2d");
+
     // Manejo del clic en el botón de inicio
     startButton.addEventListener('click', () => {
         if (checkIfAllActivated()) {
+            canvas.classList.remove('hidden');
             alert("¡Todos los botones están activados! Iniciando...");
 
             const activatedButton = Array.from(buttons1).find(btn => btn.classList.contains('active'));
 
             console.log("Botón activado en modo-juego:", activatedButton.getAttribute('data-id'));
 
+            
+            let nEnLinea = parseInt(activatedButton.getAttribute('data-id'), 10); //get Atributte devuelve string, por eso hay que convertirlo a int
 
-            let nEnLinea = activatedButton.getAttribute('data-id');
             const cronometro = new Cronometro("cronometro", 10); // Cuenta regresiva de 10
             cronometro.iniciar();
 
-            let canvas = document.getElementById("gameCanvas");
-            let ctx = canvas.getContext("2d");
-        
-            canvas.classList.remove('hidden');
+            
             
             // Establece el tamaño del canvas al tamaño real;
             canvas.width = canvas.clientWidth; 
@@ -111,7 +113,6 @@ window.onload = () => {
 
             console.log("hola11");
 
-            let nEnLinea1 = document.getElementById('select-nEnLinea');
             // nEnLinea1.addEventListener('change', () => {
             //     location.reload();
             // })

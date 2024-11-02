@@ -137,7 +137,7 @@ export class Juego{
 
             let columna = this.tablero1.obtenerColumna(mouseX);
             this.dibujarFondo();
-            if (columna > -1 && columna < 7) {
+            if (columna > -1 && columna < this.columnas) {
                 this.tablero1.dibujarTablero(columna, 1);
             } else {
                 this.tablero1.dibujarTablero();
