@@ -446,16 +446,16 @@ canvas {
     width: 100%;
     height: 100%;
 }
+
 .cronometro-container {
     position: absolute;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     top: 0;
-    right: 0;
+    right: 70px; /* el ancho del icono + 20px de margin*/
     height: auto; 
     z-index: 1001; 
-    
 }
 
 .cronometro-display {
@@ -463,7 +463,7 @@ canvas {
     font-weight: bold;
     background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding: 5px; /*cambie*/
     border-radius: 5px;
 }
 

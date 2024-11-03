@@ -4,6 +4,7 @@ import { Fichero } from "../js/Fichero.js";
 export class Juego{
     
     constructor(canvas, ctx, width, height, modoJuego, filas, columnas, nEnLinea, radioFicha, margen){
+        this.nEnLinea = nEnLinea;
         this.canvas = canvas;
         this.ctx = ctx;
         this.width = width;
@@ -21,15 +22,30 @@ export class Juego{
         this.opacidad = 1; //valores entre 0 y 1
         this.tablero1 = new Tablero(filas, columnas, this.posIniX, this.posIniY, this.margenFichas, this.margenLineas, this.radioFicha, ctx);
         this.tablero = this.tablero1.matriz;
+
+        this.limiteBaseColumn = this.posIniX - this.radioFicha - this.margenLineas;
+        this.limiteBaseFila = this.posIniX - this.radioFicha - this.margenLineas;
+
+        /*Pos del turno jugaodr*/
+        this.xPosTurnoJugador = this.margenLineas + radioFicha;
+        this.yPosTurnoJugador = this.height - radioFicha;
+        this.xPosTurnoFicha = this.limiteBaseColumn - radioFicha - this.margenLineas;
+        this.yPosTurnoFicha = this.height - radioFicha - margen/2;
         
         /*Icon Reset */
         this.iconReset = new Image();
-        this.xIconReset = width - 150;
-        this.yIconReset = 10;
-        this.widthIconReset = 35;
-        this.heightIconReset = 35;
+        this.widthIconReset = 50;
+        this.xIconReset = this.width - this.widthIconReset;
+        this.yIconReset = 0;
+        this.heightIconReset = 50;
 
-        this.nEnLinea = nEnLinea;
+        /*Icon Back */
+        this.iconBack = new Image();
+        this.xIconBack = 0;
+        this.yIconBack = 0;
+        this.widthIconBack = 50;
+        this.heightIconBack = 50;
+
 
         /*Fichero*/
         this.posFichaCounter = {
@@ -73,13 +89,14 @@ export class Juego{
         this.background.onload = () => {
             this.dibujarFondo();
             this.dibujarIconReset();
-            
+            this.dibujarIconBack();
             this.tablero1.dibujarTablero( undefined, this.opacidad);
             this.fichero.llenarFichero();
             // Agrega un pequeño retraso antes de llamar a dibujarFichas
             setTimeout(() => {
                 this.fichero.dibujarFichas();
             }, 80);
+            this.dibujarRectangulo();
             this.dibujarTurno();
 
             
@@ -125,7 +142,6 @@ export class Juego{
             this.fichaAgarrada.y = this.yIniFichaAgarrada;
         }
         this.redibujarCanvas();
-        this.dibujarTurno();
     }
 
     dibujar(e) {
@@ -144,7 +160,8 @@ export class Juego{
                 this.tablero1.dibujarTablero();
             }
             this.fichero.dibujarFichas();
-            //this.dibujarIconReset(); titila cuando lo pones 
+            // this.dibujarIconBack();
+            // this.dibujarIconReset(); titilan porque se van cargando las img
           
         }
     }
@@ -204,22 +221,40 @@ export class Juego{
     }
 
     dibujarTurno() {
-        let turno = "";
+        this.ctx.save();
         this.ctx.font = "30px Arial";
-        if(this.turnoJugador === "red"){
-            turno="Terrorist";
-        }else{
-            turno = "Counter";
-        }
-        this.ctx.fillText(`Turno del jugador: ${turno}`, 10, 30); // Dibuja el turno en la parte superior izquierda
+        this.ctx.fillText(`Turno del jugador:`, this.xPosTurnoJugador, this.yPosTurnoJugador); // Dibuja el turno en la parte superior izquierda
+        this.dibujarCirculo(this.xPosTurnoFicha, this.yPosTurnoFicha, this.turnoJugador);
+        this.ctx.restore();
+    }
+
+    dibujarCirculo(x , y, color){
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, this.radioFicha-10, 0, 2 * Math.PI);  
+        this.ctx.fillStyle = color;
+        this.ctx.fill();
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = "black";
+        this.ctx.stroke();
+        this.ctx.closePath();
     }
 
     dibujarIconReset() {
-        this.iconReset.src = '../img/icon-reset.png';
+        this.iconReset.src = '../img/icon-reset-1.jpg';
     
         this.iconReset.onload = () => {
             this.ctx.save();
             this.ctx.drawImage(this.iconReset, this.xIconReset, this.yIconReset, this.widthIconReset, this.heightIconReset);
+            this.ctx.restore();
+        };
+    }
+
+    dibujarIconBack() {
+        this.iconBack.src = '../img/icon-back-1.jpg';
+    
+        this.iconBack.onload = () => {
+            this.ctx.save();
+            this.ctx.drawImage(this.iconBack, this.xIconBack, this.yIconBack, this.widthIconBack, this.heightIconBack);
             this.ctx.restore();
         };
     }
@@ -267,6 +302,7 @@ export class Juego{
                 this.turnoJugador = "red";
             }
 
+            this.dibujarRectangulo();
             this.dibujarTurno(this.turnoJugador); // Dibuja el turno actual después de limpiar
             
         }
@@ -353,13 +389,54 @@ export class Juego{
     
         return false; // Si no se ha encontrado un ganador, retorna false
     }
-    
+
+    dibujarRectangulo(){
+        this.ctx.save();
+        const heightRectangle = this.margenFichas;
+        const widthRectangle = this.limiteBaseColumn;
+        const x = 3;
+        const y = this.height - heightRectangle - 2; //stroke
+
+
+        // Dibujamos el cuadrado blanco
+        this.ctx.fillStyle = '#4c593b';
+        this.ctx.fillRect(x, y, widthRectangle, heightRectangle);
+
+        // Línea superior en rojo
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = '#7b8773';
+        this.ctx.moveTo(x, y);
+        this.ctx.lineTo(x + widthRectangle, y);
+        this.ctx.stroke();
+
+        // Línea izquierda en rojo
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = '#7b8773';
+        this.ctx.moveTo(x, y);
+        this.ctx.lineTo(x, y + heightRectangle);
+        this.ctx.stroke();
+
+        // Línea derecha en negro
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = '#26321e';
+        this.ctx.moveTo(x + widthRectangle, y);
+        this.ctx.lineTo(x + widthRectangle, y + heightRectangle);
+        this.ctx.stroke();
+
+        // Línea inferior en negro
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = '#26321e';
+        this.ctx.moveTo(x, y + heightRectangle);
+        this.ctx.lineTo(x + widthRectangle, y + heightRectangle);
+        this.ctx.stroke();
+        this.ctx.restore();
+    }
 
     redibujarCanvas(){
         this.limpiarCanvas();
         this.dibujarFondo();
         this.dibujarIconReset();
-       
+        this.dibujarIconBack();        
         this.tablero1.dibujarTablero();
         this.fichero.dibujarFichas();
     }
