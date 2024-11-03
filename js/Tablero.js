@@ -128,5 +128,9 @@ export class Tablero {
         }
     
         return columna;
-    }    
+    }
+
+    limpiar() {
+        this.tablero = Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
+    }
 }

@@ -3,9 +3,6 @@ import { Cronometro } from "../js/cronometro.js";
 
 
 window.onload = () => {
-    const cancion = new Audio('../audio/counter-strike-song.mp3');
-    cancion.loop = true;
-    cancion.volume = 0.2;
 
     const gameSelection = document.querySelector('.game-selection');
 
@@ -78,9 +75,6 @@ window.onload = () => {
             alert("¡Todos los botones están activados! Iniciando...");
             cronometroContainer.classList.remove('hidden'); 
 
-            cancion.play();
-
-
             const activatedButton = Array.from(buttons1).find(btn => btn.classList.contains('active'));
 
             console.log("Botón activado en modo-juego:", activatedButton.getAttribute('data-id'));
@@ -120,8 +114,6 @@ window.onload = () => {
                 6: 15,
                 7: 15
             };
-
-            console.log("hola11");
 
             // nEnLinea1.addEventListener('change', () => {
             //     location.reload();

@@ -13,6 +13,7 @@ export class Juego{
         this.filas = filas;
         this.columnas = columnas;
         this.radioFicha = radioFicha;
+        this.margen = margen;
         this.margenFichas = (this.radioFicha*2) + margen; //el diametro + un numero x
         this.background = new Image();
         this.posIniX = width*0.28;
@@ -90,13 +91,17 @@ export class Juego{
         this.terrorWin = new Audio('../audio/terror-win.mp3');
         this.ctWin.volume = 0.5;
         this.terrorWin.volume = 0.5;
+        this.cancion = new Audio('../audio/counter-strike-song.mp3');
+        this.cancion.loop = true;
+        this.cancion.volume = 0.2;
     }
     // Espera a que la imagen se cargue antes de dibujarla en el canvas
     inicializarJuego(){
-        console.log(this.height);
+        console.table(this.tablero1);
         this.background.src = '../img/background-cs.jpeg';
 
         this.background.onload = () => {
+            this.cancion.play();
             this.dibujarFondo();
             // this.dibujarBackgroundFicha();
             
@@ -143,7 +148,7 @@ export class Juego{
         // Lógica para el icono de reset
         if (this.estaEntre(mouseX, this.xIconReset, this.xIconReset + this.widthIconReset) &&
             this.estaEntre(mouseY, this.yIconReset, this.yIconReset + this.heightIconReset)) {
-            alert("reset");
+            this.reinciarJuego();
         }
     }
 
@@ -330,6 +335,7 @@ export class Juego{
                         this.ctWin.play();
                     }
                     alert(`¡El jugador ${turnoGanador} ha ganado!`);
+                    this.reinciarJuego();
                 }, 100); // Le da un poco de tiempo para mostrar la posición final antes del alert
             }
             
@@ -494,5 +500,60 @@ export class Juego{
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    
+    reinciarJuego() {
+        // Pausar y resetear sonidos
+        this.cancion.pause();
+        this.cancion.currentTime = 0;
+        this.ctWin.pause();
+        this.ctWin.currentTime = 0;
+        this.terrorWin.pause();
+        this.terrorWin.currentTime = 0;
+
+        this.eliminarEventos();
+
+        this.setearValoresIniciales();
+
+        this.tablero1.limpiar();
+        this.tablero = Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
+
+        this.limpiarCanvas();
+
+        // Crear una nueva instancia del juego y guardarla en `this.juegoActual`
+        let canvasNuevo = document.getElementById("gameCanvas");
+        let ctxNuevo = canvasNuevo.getContext("2d");
+        let juegoNuevo = new Juego(
+            canvasNuevo,
+            ctxNuevo,
+            this.width,
+            this.height,
+            `${this.nEnLinea} en linea`,
+            this.filas,
+            this.columnas,
+            this.nEnLinea,
+            this.radioFicha,
+            this.margen
+        );
+
+        juegoNuevo.inicializarJuego();
+    }
+
+    eliminarEventos() {
+        this.canvas.removeEventListener('mousedown', this.mouseDown);
+        this.canvas.removeEventListener('mousemove', this.dibujar);
+        this.canvas.removeEventListener('mouseup', this.mouseUp);
+    }
+
+    setearValoresIniciales(){
+        for (let i = 0; i < this.fichero.fichas.length; i++) {
+            const color = this.fichero.fichas[i].color; // Asumiendo que `color` es una propiedad de cada ficha en `fichero`
+
+            if (color === "red") {
+                this.fichero.fichas[i].x = this.posFichaTerror[this.nEnLinea].x
+                this.fichero.fichas[i].y = this.posFichaTerror[this.nEnLinea].y
+            } else if (color === "blue") {
+                this.fichero.fichas[i].x = this.posFichaCounter[this.nEnLinea].x
+                this.fichero.fichas[i].y = this.posFichaCounter[this.nEnLinea].y
+            }
+        }
+    }
 }
