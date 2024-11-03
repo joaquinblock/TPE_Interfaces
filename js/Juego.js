@@ -24,7 +24,11 @@ export class Juego{
         this.tablero = this.tablero1.matriz;
 
         this.limiteBaseColumn = this.posIniX - this.radioFicha - this.margenLineas;
-        this.limiteBaseFila = this.posIniX - this.radioFicha - this.margenLineas;
+        this.limiteBaseFila = this.posIniY - this.radioFicha - this.margenLineas;
+
+        /* Background ficha */
+
+        this.backgroundFicha = new Image();
 
         /*Pos del turno jugaodr*/
         this.xPosTurnoJugador = this.margenLineas + radioFicha;
@@ -80,6 +84,12 @@ export class Juego{
         this.fichaAgarrada = null;
         this.xIniFichaAgarrada = 0;
         this.yIniFichaAgarrada = 0;
+
+        /* SONGS */
+        this.ctWin = new Audio('../audio/ct-win.mp3');
+        this.terrorWin = new Audio('../audio/terror-win.mp3');
+        this.ctWin.volume = 0.5;
+        this.terrorWin.volume = 0.5;
     }
     // Espera a que la imagen se cargue antes de dibujarla en el canvas
     inicializarJuego(){
@@ -88,9 +98,15 @@ export class Juego{
 
         this.background.onload = () => {
             this.dibujarFondo();
+            // this.dibujarBackgroundFicha();
+            
+            this.backgroundFicha.src = '../img/background-ficha-1.png';
             this.dibujarIconReset();
             this.dibujarIconBack();
-            this.tablero1.dibujarTablero( undefined, this.opacidad);
+            setTimeout(() => {
+                this.tablero1.dibujarTablero( undefined, this.opacidad);
+            }, 70);
+            
             this.fichero.llenarFichero();
             // Agrega un pequeño retraso antes de llamar a dibujarFichas
             setTimeout(() => {
@@ -115,6 +131,8 @@ export class Juego{
         const mouseX = this.getMousePos(e).x;
         const mouseY = this.getMousePos(e).y;
 
+        console.log(mouseX);
+        console.log(mouseY);
         this.fichaAgarrada = this.mouseEnFicha(mouseX, mouseY);
         if (this.fichaAgarrada) {
             this.estaAgarrando = true;
@@ -223,12 +241,14 @@ export class Juego{
     dibujarTurno() {
         this.ctx.save();
         this.ctx.font = "30px Arial";
+        this.ctx.fillStyle = "white";
         this.ctx.fillText(`Turno del jugador:`, this.xPosTurnoJugador, this.yPosTurnoJugador); // Dibuja el turno en la parte superior izquierda
         this.dibujarCirculo(this.xPosTurnoFicha, this.yPosTurnoFicha, this.turnoJugador);
-        this.ctx.restore();
+        
     }
 
     dibujarCirculo(x , y, color){
+        this.ctx.save();
         this.ctx.beginPath();
         this.ctx.arc(x, y, this.radioFicha-10, 0, 2 * Math.PI);  
         this.ctx.fillStyle = color;
@@ -237,6 +257,7 @@ export class Juego{
         this.ctx.strokeStyle = "black";
         this.ctx.stroke();
         this.ctx.closePath();
+        this.ctx.restore();
     }
 
     dibujarIconReset() {
@@ -259,6 +280,19 @@ export class Juego{
         };
     }
 
+    // dibujarBackgroundFicha() {
+    //     return new Promise((resolve) => {
+    //         this.ctx.save();
+    //         this.backgroundFicha = new Image();
+    //         this.backgroundFicha.src = '../img/background-ficha-1.png';
+    
+    //         this.backgroundFicha.onload = () => {
+    //             this.ctx.drawImage(this.backgroundFicha, this.limiteBaseColumn, this.limiteBaseFila, this.margenFichas, this.margenFichas);
+    //             this.ctx.restore();
+    //             resolve(); // Resuelve la promesa cuando la imagen esté dibujada
+    //         };
+    //     });
+    // }
     
     caerFicha(ficha, columna) {
         const yObjetivo = this.obtenerYObjetivo(columna); // Calcula la posición de caída
@@ -290,8 +324,12 @@ export class Juego{
             let turnoGanador = this.turnoJugador;
             if (this.verificarGanador(this.nEnLinea)) {
                 setTimeout(() => {
+                    if(turnoGanador === 'red'){
+                        this.terrorWin.play();
+                    }else{
+                        this.ctWin.play();
+                    }
                     alert(`¡El jugador ${turnoGanador} ha ganado!`);
-                    location.reload(); // Recarga la página al cerrar el alert
                 }, 100); // Le da un poco de tiempo para mostrar la posición final antes del alert
             }
             
@@ -455,4 +493,6 @@ export class Juego{
         // Limpia el canvas antes de redibujar
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+
+    
 }

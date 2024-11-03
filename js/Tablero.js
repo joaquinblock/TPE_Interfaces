@@ -7,24 +7,32 @@ export class Tablero {
         this.posIniY = posIniY;
         this.margenFichas = margenFichas;
         this.margenLineas = margenLineas;
+        this.backgroundFicha = new Image();
+        this.backgroundFicha.src = '../img/background-ficha-6.png';
         this.radioFicha = radioFicha;
         this.ctx = ctx;
         this.limiteBase = posIniX - radioFicha - margenLineas;
         this.matriz = [];
-        this.colorLinea = "rgba(255, 215, 0)";
+        this.colorLinea = "#FFD700";
+        this.limiteBaseColumn = this.posIniX - this.radioFicha - this.margenLineas;
+        this.limiteBaseFila = this.posIniY - this.radioFicha - this.margenLineas;
         this.inicializarMatriz();
     }
 
     dibujarTablero(columnaActual, opacidad) {
         let x = 0;
         let y = 0;
-    
+        let x1 = 0;
+        let y1 = 0;
         for (let col = 0; col < this.columnas; col++) {
             // Dibujar los círculos en cada fila de la columna actual
             for (let row = 0; row < this.filas; row++) {
                 x = this.posIniX + this.margenFichas * col;
                 y = this.posIniY + this.margenFichas * row;
-                this.dibujarCirculo(x, y, opacidad);
+                x1 = this.limiteBaseColumn + this.margenFichas * col;
+                y1 = this.limiteBaseFila + this.margenFichas * row;
+                this.dibujarBackgroundFicha(x1, y1);
+                this.dibujarCirculo(x, y, 0.1);
             }
     
             // Determinar el color de la línea para la columna actual
@@ -38,6 +46,13 @@ export class Tablero {
         const colorFinal = (columnaActual === this.columnas - 1) ? this.colorLinea : "white";
         this.dibujarLineaColumna(xFinal, yFinal, colorFinal);
     }
+
+    dibujarBackgroundFicha(x, y) {
+        this.ctx.save();
+        this.ctx.drawImage(this.backgroundFicha, x, y, this.margenFichas, this.margenFichas);
+        this.ctx.restore();
+    }
+    
     
 
     dibujarLineaColumna(xCircle, yCircle, color) {
@@ -52,15 +67,14 @@ export class Tablero {
 
 
 
-    dibujarCirculo(x , y, opacidad){
+    dibujarCirculo(x, y, opacidad) {
+        this.ctx.save();
         this.ctx.beginPath();
         this.ctx.arc(x, y, this.radioFicha, 0, 2 * Math.PI);  
         this.ctx.fillStyle = `rgba(255, 255, 255, ${opacidad})`;
         this.ctx.fill();
-        this.ctx.lineWidth = 4;
-        this.ctx.strokeStyle = "black";
-        this.ctx.stroke();
         this.ctx.closePath();
+        this.ctx.restore();
     }
 
     inicializarMatriz(){

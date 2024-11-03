@@ -3,6 +3,10 @@ import { Cronometro } from "../js/cronometro.js";
 
 
 window.onload = () => {
+    const cancion = new Audio('../audio/counter-strike-song.mp3');
+    cancion.loop = true;
+    cancion.volume = 0.2;
+
     const gameSelection = document.querySelector('.game-selection');
 
     document.getElementById('play').addEventListener('click', () => {
@@ -72,7 +76,9 @@ window.onload = () => {
         if (checkIfAllActivated()) {
             canvas.classList.remove('hidden');
             alert("¡Todos los botones están activados! Iniciando...");
-            cronometroContainer.classList.remove('hidden'); // Mostrar cronómetro al iniciar
+            cronometroContainer.classList.remove('hidden'); 
+
+            cancion.play();
 
 
             const activatedButton = Array.from(buttons1).find(btn => btn.classList.contains('active'));
