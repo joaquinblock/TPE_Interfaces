@@ -22,7 +22,7 @@ export class Ficha {
         if (!this.imageLoaded) return; // No dibujar si la imagen no está lista
             
             if (this.color === "red"){
-                this.colorFicha = "#FF4500";
+                this.colorFicha = "#E32730";
             }else{
                 this.colorFicha = "#00BFFF";
             }

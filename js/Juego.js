@@ -37,7 +37,7 @@ export class Juego{
         /*Pos del turno jugaodr*/
         this.xPosTurnoJugador = this.margenLineas + radioFicha;
         this.yPosTurnoJugador = this.height - radioFicha;
-        this.xPosTurnoFicha = this.limiteBaseColumn - radioFicha - this.margenLineas;
+        this.xPosTurnoFicha = this.limiteBaseColumn - 40;
         this.yPosTurnoFicha = this.height - radioFicha - margen/2;
         
         /*Icon Reset */
@@ -149,7 +149,7 @@ export class Juego{
         // Lógica para el icono de reset
         if (this.estaEntre(mouseX, this.xIconReset, this.xIconReset + this.widthIconReset) &&
             this.estaEntre(mouseY, this.yIconReset, this.yIconReset + this.heightIconReset)) {
-            this.reinciarJuego();
+            this.recargarPag();
         }
 
         if (this.estaEntre(mouseX, this.xIconBack, this.xIconBack + this.widthIconBack) &&
@@ -251,7 +251,7 @@ export class Juego{
 
     dibujarTurno() {
         this.ctx.save();
-        this.ctx.font = "25px Arial";
+        this.ctx.font = "28px Arial";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(`Turno del jugador:`, this.xPosTurnoJugador, this.yPosTurnoJugador); // Dibuja el turno en la parte superior izquierda
         this.dibujarCirculo(this.xPosTurnoFicha, this.yPosTurnoFicha, this.turnoJugador);
@@ -261,7 +261,7 @@ export class Juego{
     dibujarCirculo(x , y, color){
         let colorFicha;
         if (color === "red"){
-            colorFicha = "#FF4500";
+            colorFicha = "#E32730";
         }else{
             colorFicha = "#00BFFF";
         }
@@ -297,19 +297,6 @@ export class Juego{
         };
     }
 
-    // dibujarBackgroundFicha() {
-    //     return new Promise((resolve) => {
-    //         this.ctx.save();
-    //         this.backgroundFicha = new Image();
-    //         this.backgroundFicha.src = '../img/background-ficha-1.png';
-    
-    //         this.backgroundFicha.onload = () => {
-    //             this.ctx.drawImage(this.backgroundFicha, this.limiteBaseColumn, this.limiteBaseFila, this.margenFichas, this.margenFichas);
-    //             this.ctx.restore();
-    //             resolve(); // Resuelve la promesa cuando la imagen esté dibujada
-    //         };
-    //     });
-    // }
     
     caerFicha(ficha, columna) {
         const yObjetivo = this.obtenerYObjetivo(columna); // Calcula la posición de caída
@@ -364,7 +351,6 @@ export class Juego{
         }
     }
 
-    //Funciona bien
 
     verificarGanador(nEnLinea) {
         // Revisa las filas

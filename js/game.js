@@ -45,7 +45,7 @@ import { Cronometro } from "../js/cronometro.js";
             );
 
             
-            const cronometro = new Cronometro("cronometro", 0.5, juegoNuevo); // Cuenta regresiva de 10
+            const cronometro = new Cronometro("cronometro", 10, juegoNuevo); // Cuenta regresiva de 10
             cronometro.iniciar();
 
             juegoNuevo.inicializarJuego();
@@ -84,6 +84,7 @@ import { Cronometro } from "../js/cronometro.js";
 
     // Función para verificar si todos los grupos están activados
     const checkIfAllActivated = () => {
+        console.log(activatedButtons.group1 && activatedButtons.group2 && activatedButtons.group3);
         return activatedButtons.group1 && activatedButtons.group2 && activatedButtons.group3;
     };
 
@@ -98,7 +99,7 @@ import { Cronometro } from "../js/cronometro.js";
 
         activatedButtons.group1 = button.classList.contains('active'); // Actualiza el estado del grupo 1
 
-        enableStartButton(); // Verifica si habilitar el botón de inicio
+       // enableStartButton(); // Verifica si habilitar el botón de inicio
         });
     });
 
@@ -115,7 +116,7 @@ import { Cronometro } from "../js/cronometro.js";
 
         activatedButtons.group2 = button.classList.contains('active'); // Actualiza el estado del grupo 2
  
-        enableStartButton(); // Verifica si habilitar el botón de inicio
+ //       enableStartButton(); // Verifica si habilitar el botón de inicio
         });
     });
 
@@ -132,7 +133,7 @@ import { Cronometro } from "../js/cronometro.js";
 
         activatedButtons.group3 = button.classList.contains('active'); // Actualiza el estado del grupo 3
        
-        enableStartButton(); // Verifica si habilitar el botón de inicio
+     //   enableStartButton(); // Verifica si habilitar el botón de inicio
         });
     });
 
@@ -151,27 +152,28 @@ import { Cronometro } from "../js/cronometro.js";
     // Manejo del clic en el botón de inicio
     startButton.addEventListener('click', () => {
         if (checkIfAllActivated()) {
-            alert("¡Todos los botones están activados! Iniciando...");
             iniciar();
-        } else {
-            alert("Faltan botones por apretar.");
+        } else{
+            const popover = document.getElementById('popover-inicio');
+            popover.classList.add('visible'); // Muestra el popover
+            const btnPopover = document.querySelector('#close-popover');
+
+            btnPopover.addEventListener('click',() => {
+                popover.classList.remove("visible");
+
+            });
+          
         }
+
     });
-
-    // Deshabilitar el botón de inicio al principio
-    startButton.disabled = true;
-
     
 
-    function limpiarCanvas(){
-        // Limpia el canvas antes de redibujar
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+   /* // Deshabilitar el botón de inicio al principio
+    startButton.disabled = true;*/
+
 
     function iniciar() {
             canvas.classList.remove('hidden');
-            const background_cs = document.querySelector(".background-cs");
-            background_cs.classList.remove('hidden');
             cronometroContainer.classList.remove('hidden'); 
 
             const activatedButton = Array.from(buttons1).find(btn => btn.classList.contains('active'));
@@ -223,7 +225,7 @@ import { Cronometro } from "../js/cronometro.js";
             // });
 
             let juego = new Juego (canvas, ctx, width, height, `${nEnLinea} en linea`, tamaniosTablero[nEnLinea].filas, tamaniosTablero[nEnLinea].columnas, nEnLinea, radiosFichas[nEnLinea], margenes[nEnLinea], imagenCt, imagenTerror);
-            const cronometro = new Cronometro("cronometro", 0.5, juego); // Cuenta regresiva de 10
+            const cronometro = new Cronometro("cronometro", 10, juego); // Cuenta regresiva de 10
             cronometro.iniciar();
             juego.inicializarJuego();
     }

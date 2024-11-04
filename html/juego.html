@@ -69,14 +69,15 @@
     </div>
   </header>
   <main>
-    <!-- Popover de mensaje de victoria -->
-    <div id="popover-win" class="popover hidden">
-      <p id="popover-message-win"></p>
-    </div>
-     <!-- Popover de mensaje de empate -->
-     <div id="popover-empate" class="popover hidden">
-      <p id="popover-message-empate"> Tiempo finalizado,EMPATE!!</p>
-    </div>
+      <!-- Popover de mensaje de falta botones-->
+      <div id="popover-inicio" class="popover hidden">
+        <p> Faltan seleccionar botones</p>
+        <button id="close-popover">Cerrar</button>
+      </div>
+    
+
+
+   
 
     <div class="ubication-game">
       <div class="ubication">
@@ -88,59 +89,78 @@
       </div>
     </div>
 
+
     <!-- GAME -->
     <div class="game">
+      <!-- Popover de mensaje de victoria -->
+      <div id="popover-win" class="popover hidden">
+        <p id="popover-message-win"></p>
+      </div>
+      <!-- Popover de mensaje de empate -->
+      <div id="popover-empate" class="popover hidden">
+        <p> Tiempo finalizado,EMPATE!!</p>
+      </div>
       <canvas class="hidden" id="gameCanvas" width="1920" height="1080"></canvas>
       <div class="cronometro-container">
         <div id="cronometro" class="cronometro-display hidden">00:00</div>
       </div>
-      <!-- para cuando se recarga el juego -->
-      <div class="background-cs hidden">
-
-      </div>
+    
       <div class="game-selection hidden">
         <div class="fichero">
-          <div class="grupo-fichas-1">
-            <button class="button1 blue animation" data-id="1">
-              <img src="../iconos/ficha-ct-1.png" alt="Ficha 1">
-            </button>
-    
-            <button class="button1 blue animation" data-id="2">
-              <img src="../iconos/ficha-ct-2.png" alt="Ficha 2">
-            </button>
-
-            <button class="button1 blue animation" data-id="3">
-              <img src="../iconos/ficha-ct-3.png" alt="Ficha 3">
-            </button>
-
-            <button class="button1 blue animation" data-id="4">
-              <img src="../iconos/ficha-ct-4.png" alt="Ficha 4">
-            </button>
+          <div class="fichas-1">
+            <h2>Seleccionar fichas:</h2>
+            <h3>Jugador 1</h3>
+            <div class="grupo-fichas-1">
+              <button class="button1 blue animation" data-id="1">
+                <img src="../iconos/ficha-ct-1.png" alt="Ficha 1">
+              </button>
+      
+              <button class="button1 blue animation" data-id="2">
+                <img src="../iconos/ficha-ct-2.png" alt="Ficha 2">
+              </button>
+  
+              <button class="button1 blue animation" data-id="3">
+                <img src="../iconos/ficha-ct-3.png" alt="Ficha 3">
+              </button>
+  
+              <button class="button1 blue animation" data-id="4">
+                <img src="../iconos/ficha-ct-4.png" alt="Ficha 4">
+              </button>
+            </div>
           </div>
 
-          <div class="modo-juego">
-            <button class="button1 yellow animation" data-id="4">4 en linea</button>
-            <button class="button1 yellow animation" data-id="5">5 en linea</button>
-            <button class="button1 yellow animation" data-id="6">6 en linea</button>
-            <button class="button1 yellow animation" data-id="7">7 en linea</button>
+          
+          <div class="seleccionar-modo-juego">
+            <h2>Seleccionar:</h2>
+            <h3>modo de juego:</h3>
+            <div class="modo-juego">
+              <button class="button1 yellow animation" data-id="4">4 en linea</button>
+              <button class="button1 yellow animation" data-id="5">5 en linea</button>
+              <button class="button1 yellow animation" data-id="6">6 en linea</button>
+              <button class="button1 yellow animation" data-id="7">7 en linea</button>
+            </div>
           </div>
+          
+          <div class="fichas-2">
+            <h2>Seleccionar fichas:</h2>
+            <h3>Jugador 2</h3>
+            <div class="grupo-fichas-2">
+              <button class="button1 red animation" data-id="1">
+                <img src="../iconos/ficha-terror-1.png" alt="Ficha 1">
+              </button>
+  
+              <button class="button1 red animation" data-id="2">
+                <img src="../iconos/ficha-terror-2.png" alt="Ficha 2">
+              </button>
+  
+              <button class="button1 red animation" data-id="3">
+                <img src="../iconos/ficha-terror-3.png" alt="Ficha 3">
+              </button>
 
-          <div class="grupo-fichas-2">
-            <button class="button1 red animation" data-id="1">
-              <img src="../iconos/ficha-terror-1.png" alt="Ficha 1">
-            </button>
-
-            <button class="button1 red animation" data-id="2">
-              <img src="../iconos/ficha-terror-2.png" alt="Ficha 2">
-            </button>
-
-            <button class="button1 red animation" data-id="3">
-              <img src="../iconos/ficha-terror-3.png" alt="Ficha 3">
-            </button>
-
-            <button class="button1 red animation" data-id="4">
-              <img src="../iconos/ficha-terror-4.png" alt="Ficha 4">
-            </button>
+              <button class="button1 red animation" data-id="4">
+                <img src="../iconos/ficha-terror-4.png" alt="Ficha 4">
+              </button>
+            </div>
           </div>
         </div>
         <div class="fichero-1">
