@@ -3,7 +3,7 @@ import { Fichero } from "../js/Fichero.js";
 
 export class Juego{
     
-    constructor(canvas, ctx, width, height, modoJuego, filas, columnas, nEnLinea, radioFicha, margen){
+    constructor(canvas, ctx, width, height, modoJuego, filas, columnas, nEnLinea, radioFicha, margen, imagenCt, imagenTerror){
         this.nEnLinea = nEnLinea;
         this.canvas = canvas;
         this.ctx = ctx;
@@ -23,6 +23,9 @@ export class Juego{
         this.opacidad = 1; //valores entre 0 y 1
         this.tablero1 = new Tablero(filas, columnas, this.posIniX, this.posIniY, this.margenFichas, this.margenLineas, this.radioFicha, ctx);
         this.tablero = this.tablero1.matriz;
+
+        this.imagenCt = imagenCt;
+        this.imagenTerror = imagenTerror;
 
         this.limiteBaseColumn = this.posIniX - this.radioFicha - this.margenLineas;
         this.limiteBaseFila = this.posIniY - this.radioFicha - this.margenLineas;
@@ -76,9 +79,17 @@ export class Juego{
         };
         this.fichasTotales= columnas * filas;
         this.fichasPorJugador = this.fichasTotales / 2;
-        this.fichero = new Fichero(this.fichasPorJugador, this.radioFicha, this.ctx, this.posFichaCounter[nEnLinea], this.posFichaTerror[nEnLinea])
+        this.fichero = new Fichero(this.fichasPorJugador, this.radioFicha, this.ctx, this.posFichaCounter[nEnLinea], this.posFichaTerror[nEnLinea], this.imagenCt, this.imagenTerror);
 
-        /*Mouse Pos */
+        /*Eventos*/
+        this.onMouseDown = (e) => this.mouseDown(e);
+        this.onMouseMove = (e) => this.dibujar(e);
+        this.onMouseUp = (e) => this.mouseUp(e);
+        
+        // Agregamos los eventos de escucha
+        this.canvas.addEventListener('mousedown', this.onMouseDown);
+        this.canvas.addEventListener('mousemove', this.onMouseMove);
+        this.canvas.addEventListener('mouseup', this.onMouseUp);
 
         /* Ficha agarrada */
         this.estaAgarrando = false;
@@ -97,8 +108,10 @@ export class Juego{
     }
     // Espera a que la imagen se cargue antes de dibujarla en el canvas
     inicializarJuego(){
-        console.table(this.tablero1);
-        this.background.src = '../img/background-cs.jpeg';
+        this.background.src = '../img/background-pixel.jpg';
+
+        console.log(this.imagenCt);
+        console.log(this.imagenTerror);
 
         this.background.onload = () => {
             this.cancion.play();
@@ -119,16 +132,6 @@ export class Juego{
             }, 80);
             this.dibujarRectangulo();
             this.dibujarTurno();
-
-            
-    
-            // Eventos de mouse
-
-            // Agregar los eventos de mouse
-            this.canvas.addEventListener('mousedown', (e) => this.mouseDown(e));
-            this.canvas.addEventListener('mousemove', (e) => this.dibujar(e));
-            
-            this.canvas.addEventListener('mouseup', (e) => this.mouseUp(e));
         };
     }
 
@@ -136,8 +139,6 @@ export class Juego{
         const mouseX = this.getMousePos(e).x;
         const mouseY = this.getMousePos(e).y;
 
-        console.log(mouseX);
-        console.log(mouseY);
         this.fichaAgarrada = this.mouseEnFicha(mouseX, mouseY);
         if (this.fichaAgarrada) {
             this.estaAgarrando = true;
@@ -149,6 +150,11 @@ export class Juego{
         if (this.estaEntre(mouseX, this.xIconReset, this.xIconReset + this.widthIconReset) &&
             this.estaEntre(mouseY, this.yIconReset, this.yIconReset + this.heightIconReset)) {
             this.reinciarJuego();
+        }
+
+        if (this.estaEntre(mouseX, this.xIconBack, this.xIconBack + this.widthIconBack) &&
+            this.estaEntre(mouseY, this.yIconBack, this.yIconBack + this.heightIconBack)) {
+            this.backPage();
         }
     }
 
@@ -253,10 +259,16 @@ export class Juego{
     }
 
     dibujarCirculo(x , y, color){
+        let colorFicha;
+        if (color === "red"){
+            colorFicha = "#FF4500";
+        }else{
+            colorFicha = "#00BFFF";
+        }
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.arc(x, y, this.radioFicha-10, 0, 2 * Math.PI);  
-        this.ctx.fillStyle = color;
+        this.ctx.fillStyle = colorFicha;
         this.ctx.fill();
         this.ctx.lineWidth = 2;
         this.ctx.strokeStyle = "black";
@@ -320,7 +332,7 @@ export class Juego{
             this.redibujarCanvas();
             // Marca la posición en el tablero como ocupada
             const filaObjetivo = Math.round((yObjetivo - this.posIniY) / this.margenFichas);
-            console.log(ficha);
+            
             this.tablero[filaObjetivo][columna] = ficha; // Marca esta posición como ocupada
 
             ficha.enTablero = true; // Marca la ficha como colocada en el tablero
@@ -334,7 +346,7 @@ export class Juego{
                     }else{
                         this.ctWin.play();
                     }
-                    alert(`¡El jugador ${turnoGanador} ha ganado!`);
+                    this.mostrarPopover(turnoGanador);
                     this.reinciarJuego();
                 }, 100); // Le da un poco de tiempo para mostrar la posición final antes del alert
             }
@@ -501,40 +513,49 @@ export class Juego{
     }
 
     reinciarJuego() {
-        // Pausar y resetear sonidos
-        this.cancion.pause();
-        this.cancion.currentTime = 0;
-        this.ctWin.pause();
-        this.ctWin.currentTime = 0;
-        this.terrorWin.pause();
-        this.terrorWin.currentTime = 0;
+        this.canvas.removeEventListener('mousedown', this.onMouseDown);
+        this.canvas.removeEventListener('mousemove', this.onMouseMove);
+        this.canvas.removeEventListener('mouseup', this.onMouseUp);
+        setTimeout(() => {
+            this.recargarPag();
+        }, 10000);
+        // this.cancion.pause();
+        // this.cancion.currentTime = 0;
+        // this.ctWin.pause();
+        // this.ctWin.currentTime = 0;
+        // this.terrorWin.pause();
+        // this.terrorWin.currentTime = 0;
 
-        this.eliminarEventos();
+        // this.eliminarEventos();
 
-        this.setearValoresIniciales();
+        // this.setearValoresIniciales();
 
-        this.tablero1.limpiar();
-        this.tablero = Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
+        // this.tablero1.limpiar();
+        // this.tablero = Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
 
-        this.limpiarCanvas();
+        // this.limpiarCanvas();
 
-        // Crear una nueva instancia del juego y guardarla en `this.juegoActual`
-        let canvasNuevo = document.getElementById("gameCanvas");
-        let ctxNuevo = canvasNuevo.getContext("2d");
-        let juegoNuevo = new Juego(
-            canvasNuevo,
-            ctxNuevo,
-            this.width,
-            this.height,
-            `${this.nEnLinea} en linea`,
-            this.filas,
-            this.columnas,
-            this.nEnLinea,
-            this.radioFicha,
-            this.margen
-        );
+        // // Crear una nueva instancia del juego y guardarla en `this.juegoActual`
+        // const canvasNuevo = document.getElementById("gameCanvas");
+        // const ctxNuevo = canvasNuevo.getContext("2d");
+        // const juegoNuevo = new Juego(
+        //     canvasNuevo,
+        //     ctxNuevo,
+        //     this.width,
+        //     this.height,
+        //     `${this.nEnLinea} en linea`,
+        //     this.filas,
+        //     this.columnas,
+        //     this.nEnLinea,
+        //     this.radioFicha,
+        //     this.margen
+        // );
 
-        juegoNuevo.inicializarJuego();
+        // juegoNuevo.inicializarJuego();
+
+        // location.reload();
+    
+
     }
 
     eliminarEventos() {
@@ -555,5 +576,62 @@ export class Juego{
                 this.fichero.fichas[i].y = this.posFichaCounter[this.nEnLinea].y
             }
         }
+    }
+
+    recargarPag() {
+        sessionStorage.setItem('forcedReload', 'true');
+
+        // Crear un objeto con los datos del juego
+        const datosJuego = {
+            width: this.width,
+            height: this.height,
+            tipo: `${this.nEnLinea} en linea`,
+            filas: this.filas,
+            columnas: this.columnas,
+            nEnLinea: this.nEnLinea,
+            radioFicha: this.radioFicha,
+            margen: this.margen,
+            imagenCt: this.imagenCt.src,
+            imagenTerror: this.imagenTerror.src
+        };
+
+        // Guardar el objeto en sessionStorage como JSON
+        sessionStorage.setItem('datosJuego', JSON.stringify(datosJuego));
+        location.reload();
+    }
+
+    backPage() {
+        sessionStorage.setItem('backPage', 'true');
+
+        // Crear un objeto con los datos del juego
+        const datosJuego = {
+            width: this.width,
+            height: this.height,
+            tipo: `${this.nEnLinea} en linea`,
+            filas: this.filas,
+            columnas: this.columnas,
+            nEnLinea: this.nEnLinea,
+            radioFicha: this.radioFicha,
+            margen: this.margen,
+            imagenCt: this.imagenCt.src,
+            imagenTerror: this.imagenTerror.src
+        };
+
+        // Guardar el objeto en sessionStorage como JSON
+        sessionStorage.setItem('datosJuego', JSON.stringify(datosJuego));
+        location.reload();
+    }
+
+    mostrarPopover(turnoGanador){
+        let ganador = "";
+        if (turnoGanador === "red"){
+            ganador = "TERRORIST WIN! - Equipo rojo";
+        }else{
+            ganador = "COUNTER TERRORIST WIN! - Equipo azul";
+        }
+        const popover = document.getElementById('popover-win');
+        const mensaje = document.getElementById('popover-message-win');
+        mensaje.textContent = ganador;
+        popover.classList.add('visible');
     }
 }

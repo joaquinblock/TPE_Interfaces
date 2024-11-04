@@ -10,28 +10,34 @@ export class Ficha {
         this.enTablero = false; //si la ficha ya está en el tablero
         this.ctx = ctx;
         this.imageLoaded = false; // Variable para indicar si la imagen está cargada
-
         // Configura la imagen y marca cuando esté lista
         this.image.onload = () => {
             this.imageLoaded = true;
             this.dibujarFichaCircular();
         };
+        this.colorFicha = "";
     }
 
     dibujarFichaCircular() {
         if (!this.imageLoaded) return; // No dibujar si la imagen no está lista
+            
+            if (this.color === "red"){
+                this.colorFicha = "#FF4500";
+            }else{
+                this.colorFicha = "#00BFFF";
+            }
             this.ctx.save(); // Guarda el estado del contexto
 
             // Crear un camino circular
             this.ctx.beginPath();
             this.ctx.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
-            this.ctx.fillStyle = this.color;
+            this.ctx.fillStyle = this.colorFicha;
             this.ctx.fill();
             this.ctx.closePath();
             this.ctx.clip(); // Establece el área de recorte a la forma del círculo
         
             // Dibuja la imagen ajustada al tamaño de la ficha
-            this.ctx.drawImage(this.image, this.x-this.radio, this.y-this.radio, this.radio * 2, this.radio * 2);
+            this.ctx.drawImage(this.image, this.x-this.radio+3, this.y-this.radio, this.radio * 2-5, this.radio * 2-5);
             this.ctx.lineWidth = 3; // Ancho del contorno
             this.ctx.strokeStyle = "black"; // Color del contorno
             this.ctx.stroke(); // Dibujar el contorno

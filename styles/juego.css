@@ -118,9 +118,29 @@ body{
 }
 
 .game-selection{   /*rectangulo blanco*/
-    background-color: white;
+    background-image: url('../img/pantalla-carga.jpg'); /* Ruta de la imagen */;
+    background-size: cover; /* Ajusta el tamaño para que cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
     position: absolute;
     z-index: 20;
+    left: 13px;
+    height: 72.5%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.background-cs{
+    background-image: url('../img/background-cs.jpeg'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta el tamaño para que cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    position: absolute;
+    z-index: 15;
     left: 13px;
     height: 72.5%;
     width: 95%;
@@ -319,25 +339,53 @@ iframe{
     display: none;
 }
 
+/* ==========================
+   POPOPOVER
+   ========================== */
+.popover {
+    font-size: Arial;
+    color: black;
+    position: absolute;
+    top: 58%;
+    left: 51.5%;
+    transform: translate(-50%, 0); /* Centra horizontalmente, pero no verticalmente */
+    padding: 20px;
+    background-color: #ffeb3b;
+    border: 2px solid #fbc02d;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    display: none;
+    z-index:1100;
+}
+
+.popover.visible {
+    display: block;
+}
 
 /* ==========================
    Botones del juego
    ========================== */
-.fichero{
+.fichero, .fichero-1{
     display: flex;
     justify-content: center;
     margin-inline: auto;
+}
+.fichero-1{
+    flex-direction: column;
+    width: 740px;
 }
 .modo-juego, .grupo-fichas-1, .grupo-fichas-2{
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
     grid-template-rows: auto auto; /* Dos filas automáticas (o puedes especificar una altura) */
-    gap: 5px; /* Espacio entre los botones (opcional) */
 }
 
 .modo-juego{
     width: 40%;
 }
+
+
 .button1 {
     position: relative;
     margin: 10px 20px;
@@ -362,6 +410,7 @@ iframe{
     border: 2px solid #0082b5;
     background-color: #26ADE4;
     box-shadow: 0px 9px 1px #0082b5;
+    border-radius: 100px;
 }
 
 .red {
@@ -369,21 +418,21 @@ iframe{
     border: 2px solid #b50000;;
     background-color: #e32730;
     box-shadow: 0px 9px 1px #b50000;
+    border-radius: 100px;
 }
     
 
     
 .yellow {
-    
+    padding: 20px;
     border: 2px solid #a6a600;;
     background-color: #d6d600;
     box-shadow: 0px 9px 1px #a6a600;
 }
 
 .green {
-    margin-left: 150px;
+    margin-top: 50px;
     height: 30px;
-    width: 920px;
     border: 2px solid #0d8500;
     background-color: #36b300;
     box-shadow: 0px 9px 1px #0d8500;
@@ -479,7 +528,7 @@ canvas {
         margin-inline: auto;
     }
 
-    .game-selection{
+    .game-selection, .background-cs{
         height: 100%;
         width: 100%;
         left: 0;

@@ -1,9 +1,12 @@
+import { Juego } from "../js/Juego.js";
+
 export class Cronometro {
-    constructor(elementId, duracionMinutos = 10) { // Duración en minutos
+    constructor(elementId, duracionMinutos, juego) { // Duración en minutos
         this.duracion = duracionMinutos; // Duración total en minutos
         this.segundos = duracionMinutos * 60; // Convertir a segundos
         this.intervalId = null;
         this.elementoHTML = document.getElementById(elementId);
+        this.juego = juego;
     }
 
     iniciar() {
@@ -16,11 +19,8 @@ export class Cronometro {
             if (this.segundos <= 0) {
                 this.detener();
                 this.notificarTiempoFinalizado();
-                location.reload();
             }
         }, 1000);
-
-
     }
 
     detener() {
@@ -36,8 +36,10 @@ export class Cronometro {
 
         this.elementoHTML.textContent = `${minutosTexto}:${segundosTexto}`;
     }
+    
     notificarTiempoFinalizado() {
-        alert("¡El tiempo ha terminado!");
-       
-    }
+        const popover = document.getElementById('popover-empate');
+        popover.classList.add('visible'); // Muestra el popover
+        this.juego.reinciarJuego();
+    }
 }

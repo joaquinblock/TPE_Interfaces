@@ -11,53 +11,77 @@
 </head>
 
 <body>
- <!-- HEADER -->
- <header>
-  <div class="container-header">
+  <!-- HEADER -->
+  <header>
+    <div class="container-header">
       <button class="boton-header" id="boton-menu-hamburguesa">
-          <div class="linea"></div>
-          <div class="linea"></div>
-          <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
       </button>
 
       <div class="logo">
-          <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
-        </div>
+        <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+      </div>
 
       <div class="right_options">
 
-          <button class="boton-header" id="boton-carrito">
-              <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
-          </button>
-          <button class="boton-header" id="boton-perfil">
-              <img src="../iconos/icon-user.svg" class="iconos-header">
-          </button>
+        <button class="boton-header" id="boton-carrito">
+          <img src="../iconos/icon-cart.svg" class="iconos-header" alt="">
+        </button>
+        <button class="boton-header" id="boton-perfil">
+          <img src="../iconos/icon-user.svg" class="iconos-header">
+        </button>
 
-          <nav id="perfil" class="menu invisible">
-              <ul>
-                  <li><a href="#">Mi perfil</a></li>
-              </ul>
-          </nav>
+        <nav id="perfil" class="menu invisible">
+          <ul>
+            <li><a href="#">Mi perfil</a></li>
+          </ul>
+        </nav>
       </div>
 
       <nav id="menu-hamburguesa" class="menu invisible">
-          <ul>
-              <li><img class="iconos" src="../iconos/icon-2-people.png" alt=""><p>2 jugadores</p></li>
-              <li><img class="iconos" src="../iconos/icon-soccer.png" alt=""><p>Fútbol</p></li>
-              <li><img class="iconos" src="../iconos/icon-pool.png" alt=""><p>Billar</p></li>
-              <li><img class="iconos" src="../iconos/icon-basket.png" alt=""><p>Baloncesto</p></li>
-              <li><img class="iconos" src="../iconos/icon-gun.png" alt=""><p>Disparos</p></li>
-              <li><img class="iconos" src="../iconos/icon-flag.png" alt=""><p>Carreras</p></li>
-              <li><img class="iconos" src="../iconos/icon-pacman.svg" alt=""><p>Clásicos</p></li>
+        <ul>
+          <li><img class="iconos" src="../iconos/icon-2-people.png" alt="">
+            <p>2 jugadores</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-soccer.png" alt="">
+            <p>Fútbol</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-pool.png" alt="">
+            <p>Billar</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-basket.png" alt="">
+            <p>Baloncesto</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-gun.png" alt="">
+            <p>Disparos</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-flag.png" alt="">
+            <p>Carreras</p>
+          </li>
+          <li><img class="iconos" src="../iconos/icon-pacman.svg" alt="">
+            <p>Clásicos</p>
+          </li>
 
-          </ul>
+        </ul>
       </nav>
-  </div>
-</header>
+    </div>
+  </header>
   <main>
+    <!-- Popover de mensaje de victoria -->
+    <div id="popover-win" class="popover hidden">
+      <p id="popover-message-win"></p>
+    </div>
+     <!-- Popover de mensaje de empate -->
+     <div id="popover-empate" class="popover hidden">
+      <p id="popover-message-empate"> Tiempo finalizado,EMPATE!!</p>
+    </div>
+
     <div class="ubication-game">
       <div class="ubication">
-        <a id="home"  href="../html/home.html">Home</a> <p class="arrow-right">→</p>
+        <a id="home" href="../html/home.html">Home</a>
+        <p class="arrow-right">→</p>
         Juegos <p class="arrow-right">→</p>
         Favoritos <p class="arrow-right">→</p>
         4LineaCSGO
@@ -67,57 +91,62 @@
     <!-- GAME -->
     <div class="game">
       <canvas class="hidden" id="gameCanvas" width="1920" height="1080"></canvas>
-        <div class="cronometro-container">
-            <div id="cronometro" class="cronometro-display hidden">00:00</div>
-        </div>
+      <div class="cronometro-container">
+        <div id="cronometro" class="cronometro-display hidden">00:00</div>
+      </div>
+      <!-- para cuando se recarga el juego -->
+      <div class="background-cs hidden">
+
+      </div>
       <div class="game-selection hidden">
         <div class="fichero">
           <div class="grupo-fichas-1">
             <button class="button1 blue animation" data-id="1">
-                <img src="../img/counter.svg" alt="Ficha 1">
-                
+              <img src="../iconos/ficha-ct-1.png" alt="Ficha 1">
             </button>
+    
             <button class="button1 blue animation" data-id="2">
-                <img src="../img/counter.svg" alt="Ficha 2">
-                
+              <img src="../iconos/ficha-ct-2.png" alt="Ficha 2">
             </button>
+
             <button class="button1 blue animation" data-id="3">
-                <img src="../img/counter.svg" alt="Ficha 3">
-          
+              <img src="../iconos/ficha-ct-3.png" alt="Ficha 3">
             </button>
+
             <button class="button1 blue animation" data-id="4">
-                <img src="../img/counter.svg" alt="Ficha 4">
-                
+              <img src="../iconos/ficha-ct-4.png" alt="Ficha 4">
             </button>
-        </div>
-      
-            <div class="modo-juego">
-              <button class="button1 yellow animation" data-id="4">4 en linea</button>
-              <button class="button1 yellow animation" data-id="5">5 en linea</button>
-              <button class="button1 yellow animation" data-id="6">6 en linea</button>
-              <button class="button1 yellow animation"data-id="7">7 en linea</button>
-            </div>
-            <div class="grupo-fichas-2">
-              <button class="button1 red animation" data-id="1">
-                  <img src="../img/terror.svg" alt="Ficha 1">
-                  
-              </button>
-              <button class="button1 red animation" data-id="2">
-                  <img src="../img/terror.svg"  alt="Ficha 2">
-                  
-              </button>
-              <button class="button1 red animation" data-id="3">
-                  <img src="../img/terror.svg" alt="Ficha 3">
-                  
-              </button>
-              <button class="button1 red animation" data-id="4">
-                  <img src="../img/terror.svg"  alt="Ficha 4">
-                  
-              </button>
+          </div>
+
+          <div class="modo-juego">
+            <button class="button1 yellow animation" data-id="4">4 en linea</button>
+            <button class="button1 yellow animation" data-id="5">5 en linea</button>
+            <button class="button1 yellow animation" data-id="6">6 en linea</button>
+            <button class="button1 yellow animation" data-id="7">7 en linea</button>
+          </div>
+
+          <div class="grupo-fichas-2">
+            <button class="button1 red animation" data-id="1">
+              <img src="../iconos/ficha-terror-1.png" alt="Ficha 1">
+            </button>
+
+            <button class="button1 red animation" data-id="2">
+              <img src="../iconos/ficha-terror-2.png" alt="Ficha 2">
+            </button>
+
+            <button class="button1 red animation" data-id="3">
+              <img src="../iconos/ficha-terror-3.png" alt="Ficha 3">
+            </button>
+
+            <button class="button1 red animation" data-id="4">
+              <img src="../iconos/ficha-terror-4.png" alt="Ficha 4">
+            </button>
           </div>
         </div>
-        <button class="button1 green animation" id="start">Iniciar Juego</button>
-    </div>
+        <div class="fichero-1">
+          <button class="button1 green animation" id="start">Iniciar Juego</button>
+        </div>
+      </div>
       <div class="game-img">
         <div class="button-container">
           <p>Jugar</p>
@@ -152,7 +181,8 @@
           El tablero simula un campo de batalla dividido en dos zonas: la base de los Terroristas y la base de los
           Antiterroristas. Cada ficha representa a un miembro del equipo, equipado con su icónica vestimenta y
           armamento. Los Terroristas intentan formar una línea de fichas para representar la colocación de una bomba,
-          mientras que los Antiterroristas intentan detenerlos, simbolizando la desactivación de la amenaza. El juego se traslada de la arena de combate a un tablero táctico, donde la planificación y la anticipación son
+          mientras que los Antiterroristas intentan detenerlos, simbolizando la desactivación de la amenaza. El juego se
+          traslada de la arena de combate a un tablero táctico, donde la planificación y la anticipación son
           clave para la victoria. A
         </p>
       </div>
@@ -216,7 +246,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="logo-footer">
-        <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
+      <a href="../html/home.html"><img src="../img/image.png" alt="logo">Pixel Play</a>
     </div>
     <div class="footer-container">
       <div class="footer-section" id="footer-section-2">
@@ -245,9 +275,9 @@
       <div class="footer-section" id="footer-section-5">
         <h4>Follow Us</h4>
         <div class="social-icons">
-            <a href="#"><img src="../iconos/icono-fb.svg" alt=""></a>
-            <a href="#"><img src="../iconos/icon-ig.svg" alt=""></a>
-            <a href="#"><img src="../iconos/icon-tw.svg" alt=""></a>
+          <a href="#"><img src="../iconos/icono-fb.svg" alt=""></a>
+          <a href="#"><img src="../iconos/icon-ig.svg" alt=""></a>
+          <a href="#"><img src="../iconos/icon-tw.svg" alt=""></a>
         </div>
       </div>
     </div>
