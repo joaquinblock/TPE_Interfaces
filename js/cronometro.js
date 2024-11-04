@@ -41,5 +41,6 @@ export class Cronometro {
         const popover = document.getElementById('popover-empate');
         popover.classList.add('visible'); // Muestra el popover
         this.juego.reinciarJuego();
+        
     }
 }

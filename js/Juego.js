@@ -16,7 +16,7 @@ export class Juego{
         this.margen = margen;
         this.margenFichas = (this.radioFicha*2) + margen; //el diametro + un numero x
         this.background = new Image();
-        this.posIniX = width*0.28;
+        this.posIniX = width*0.30;
         this.posIniY = height*0.16;
         this.margenLineas = margen/2;
         this.turnoJugador = Math.random() < 0.5 ? "red" : "blue"; //elije o red o blue
@@ -251,7 +251,7 @@ export class Juego{
 
     dibujarTurno() {
         this.ctx.save();
-        this.ctx.font = "30px Arial";
+        this.ctx.font = "25px Arial";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(`Turno del jugador:`, this.xPosTurnoJugador, this.yPosTurnoJugador); // Dibuja el turno en la parte superior izquierda
         this.dibujarCirculo(this.xPosTurnoFicha, this.yPosTurnoFicha, this.turnoJugador);
@@ -518,7 +518,9 @@ export class Juego{
         this.canvas.removeEventListener('mouseup', this.onMouseUp);
         setTimeout(() => {
             this.recargarPag();
-        }, 10000);
+        }, 4000);
+        
+    
         // this.cancion.pause();
         // this.cancion.currentTime = 0;
         // this.ctWin.pause();

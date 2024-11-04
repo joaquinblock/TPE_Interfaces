@@ -199,15 +199,15 @@ import { Cronometro } from "../js/cronometro.js";
             };
 
             const radiosFichas = {
-                4: 35,
-                5: 30,
+                4: 30,
+                5: 25,
                 6: 25,
                 7: 20,
             };
 
             const margenes = {
-                4: 25,
-                5: 20,
+                4: 15,
+                5: 15,
                 6: 15,
                 7: 15
             };
